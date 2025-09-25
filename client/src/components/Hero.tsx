@@ -37,7 +37,9 @@ export default function Hero() {
               <div className="flex items-center gap-2 text-muted-foreground">
                 <span>Boston, MA</span>
                 <span>•</span>
-                <span>Open to Work</span>
+                <span className="text-chart-2 font-medium">Open to Work</span>
+                <span>•</span>
+                <span className="text-primary font-medium">Google Contributor</span>
               </div>
             </div>
 

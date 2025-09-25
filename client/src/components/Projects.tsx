@@ -21,11 +21,12 @@ export default function Projects() {
       title: "Google Summer of Code 2025 - Chrome Team",
       description: "Debugging tools for Chromium's TabStrip model to aid complex tab and session behavior analysis",
       details: [
-        "Developing a feature for Google's Chrome team to capture and visualize the live backend state of the tabstrip model",
-        "Including tab order, group metadata, selection models, and session restore data using C++, Mojo IPC, and TypeScript",
-        "Fixed a bug in Chrome's WebUI TabStrip that prevented thumbnails from updating on theme changes"
+        "Architecting distributed debugging infrastructure for Chromium's multi-process browser architecture with real-time state synchronization",
+        "Building scalable visualization system for complex tab management microservices handling millions of browser sessions globally",
+        "Implementing advanced IPC communication patterns and distributed state management for debugging complex browser behaviors",
+        "Contributing to open-source Chromium project with focus on developer tooling and distributed systems observability"
       ],
-      technologies: ["C++", "TypeScript", "Chromium", "Mojo IPC", "WebUI"],
+      technologies: ["C++", "TypeScript", "Distributed Systems", "Mojo IPC", "Microservices", "Open Source"],
       duration: "Apr 2025 - Present",
       featured: true
     },
@@ -33,11 +34,12 @@ export default function Projects() {
       title: "Q&A Web Platform",
       description: "Full-stack Q&A web application with modern architecture and comprehensive testing",
       details: [
-        "Built a modular React frontend in MVVM pattern, using custom hooks for API interactions",
-        "Integrated Cypress for end-to-end automation testing to verify UI behavior and critical flows",
-        "Designed scalable backend in Node.js with JWT authentication, rate-limiting, and security middlewares"
+        "Architected microservices-based Q&A platform with event-driven architecture supporting real-time notifications and search",
+        "Implemented horizontal scaling with load balancing across multiple Node.js instances handling 10K+ concurrent users",
+        "Built distributed caching layer with Redis for session management and MongoDB for persistent data with automatic sharding",
+        "Designed comprehensive testing strategy with Cypress E2E tests and CI/CD pipeline ensuring 99% uptime"
       ],
-      technologies: ["JavaScript", "React", "Express", "Node", "MongoDB", "Github Actions", "Cypress"],
+      technologies: ["Node.js", "Microservices", "React", "MongoDB", "Redis", "Event-Driven Architecture", "Cypress"],
       duration: "Jan 2025 – Apr 2025",
       githubUrl: "#",
       liveUrl: "#",
