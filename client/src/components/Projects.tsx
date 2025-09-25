@@ -132,7 +132,7 @@ export default function Projects() {
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={() => window.open(project.githubUrl, '_blank')}
+                        onClick={() => window.open(project.githubUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-github-${index}`}
                       >
                         <Github className="mr-2 h-4 w-4" />
@@ -143,7 +143,7 @@ export default function Projects() {
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={() => window.open(project.liveUrl, '_blank')}
+                        onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-live-${index}`}
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
@@ -160,7 +160,7 @@ export default function Projects() {
         <div className="text-center mt-12">
           <Button 
             variant="outline" 
-            onClick={() => window.open('#', '_blank')}
+            onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
             data-testid="button-view-all-projects"
           >
             <Github className="mr-2 h-4 w-4" />

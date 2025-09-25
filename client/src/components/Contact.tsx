@@ -120,7 +120,7 @@ export default function Contact() {
                       <Button
                         variant="ghost"
                         className="p-0 h-auto font-medium text-foreground justify-start"
-                        onClick={() => window.open(social.url, '_blank')}
+                        onClick={() => window.open(social.url, '_blank', 'noopener,noreferrer')}
                         data-testid={social.testId}
                       >
                         {social.label}
@@ -153,7 +153,7 @@ export default function Contact() {
                 </Button>
                 <Button 
                   variant="outline"
-                  onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank')}
+                  onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank', 'noopener,noreferrer')}
                   data-testid="button-linkedin-connect"
                 >
                   <Linkedin className="mr-2 h-4 w-4" />

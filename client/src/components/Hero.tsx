@@ -53,7 +53,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
               <Button 
                 onClick={() => scrollToSection('contact')}
-                className="bg-primary hover:bg-primary/90"
+                className="bg-primary"
                 data-testid="button-contact"
               >
                 <Mail className="mr-2 h-4 w-4" />
@@ -61,7 +61,7 @@ export default function Hero() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 data-testid="button-resume"
               >
                 <ExternalLink className="mr-2 h-4 w-4" />
@@ -73,7 +73,7 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank')}
+                onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank', 'noopener,noreferrer')}
                 data-testid="button-linkedin"
               >
                 <Linkedin className="h-5 w-5" />
@@ -81,7 +81,7 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
                 data-testid="button-github"
               >
                 <Github className="h-5 w-5" />

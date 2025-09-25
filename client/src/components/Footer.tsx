@@ -23,7 +23,7 @@ export default function Footer() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank')}
+              onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank', 'noopener,noreferrer')}
               data-testid="footer-button-linkedin"
             >
               <Linkedin className="h-5 w-5" />
@@ -31,7 +31,7 @@ export default function Footer() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => window.open('#', '_blank')}
+              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
               data-testid="footer-button-github"
             >
               <Github className="h-5 w-5" />
