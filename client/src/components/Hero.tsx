@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import TypewriterText from "@/components/TypewriterText";
 import profileImage from "@assets/generated_images/Professional_developer_headshot_portrait_8fd63405.png";
 
 export default function Hero() {
@@ -20,8 +21,18 @@ export default function Hero() {
               <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent leading-tight">
                 Brijesh Veer Bahadur Giri
               </h1>
-              <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
-                Software Engineer & Full Stack Developer
+              <h2 className="text-xl md:text-2xl text-muted-foreground font-medium h-8 md:h-10">
+                <TypewriterText 
+                  texts={[
+                    "Software Engineer & Full Stack Developer",
+                    "Google Open Source Contributor", 
+                    "Microservices & Cloud Architect",
+                    "Scalable Systems Engineer"
+                  ]}
+                  speed={100}
+                  deleteSpeed={50}
+                  delayBetween={3000}
+                />
               </h2>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <span>Boston, MA</span>
@@ -31,9 +42,10 @@ export default function Hero() {
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              MS Computer Science graduate from Northeastern University with 4.0 GPA, passionate about building scalable, 
-              high-performance systems. Currently contributing to Google's Chrome team through Google Summer of Code 2025, 
-              with 3+ years of experience in full-stack development, cloud computing, and software architecture.
+              MS Computer Science graduate from Northeastern University with 4.0 GPA, specializing in distributed systems 
+              and microservices architecture. Currently contributing to <span className="text-primary font-semibold">Google's Chrome team</span> through 
+              Google Summer of Code 2025, with 3+ years of experience building scalable, cloud-native applications and 
+              high-performance backend systems.
             </p>
 
             <div className="flex flex-wrap gap-4">
