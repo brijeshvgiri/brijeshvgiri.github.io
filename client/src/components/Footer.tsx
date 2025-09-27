@@ -1,5 +1,7 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PERSONAL_INFO } from "@/config/portfolio";
+import { FaChrome } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,10 +13,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold text-foreground mb-2">
-              Brijesh Giri
+              {PERSONAL_INFO.name}
             </h3>
             <p className="text-muted-foreground text-sm">
-              Software Engineer & Full Stack Developer
+              {PERSONAL_INFO.title}
             </p>
           </div>
 
@@ -23,7 +25,7 @@ export default function Footer() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank', 'noopener,noreferrer')}
+              onClick={() => window.open(PERSONAL_INFO.linkedin, '_blank', 'noopener,noreferrer')}
               data-testid="footer-button-linkedin"
             >
               <Linkedin className="h-5 w-5" />
@@ -31,7 +33,7 @@ export default function Footer() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+              onClick={() => window.open(PERSONAL_INFO.github, '_blank', 'noopener,noreferrer')}
               data-testid="footer-button-github"
             >
               <Github className="h-5 w-5" />
@@ -39,7 +41,15 @@ export default function Footer() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => window.open('mailto:brijeshveerbahadur@gmail.com')}
+              onClick={() => window.open(PERSONAL_INFO.gerrit, '_blank', 'noopener,noreferrer')}
+              data-testid="footer-button-gerrit"
+            >
+              <FaChrome className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => window.open(`mailto:${PERSONAL_INFO.email}`)}
               data-testid="footer-button-email"
             >
               <Mail className="h-5 w-5" />
@@ -50,7 +60,7 @@ export default function Footer() {
           <div className="text-center md:text-right">
             <p className="text-muted-foreground text-sm flex items-center justify-center md:justify-end gap-1">
               Made with <Heart className="h-4 w-4 text-red-500" fill="currentColor" /> 
-              © {currentYear} Brijesh Giri
+              © {currentYear} {PERSONAL_INFO.name}
             </p>
           </div>
         </div>

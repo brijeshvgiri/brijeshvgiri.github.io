@@ -104,7 +104,7 @@ export default function Hero() {
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-primary/20 group-hover:shadow-3xl">
                 <img
                   src={profileImage}
-                  alt="Brijesh Giri"
+                  alt={PERSONAL_INFO.name}
                   className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:contrast-110 dark:group-hover:brightness-105 dark:group-hover:contrast-105 filter brightness-90 contrast-100 dark:brightness-95 dark:contrast-95 dark:saturate-90"
                   data-testid="img-profile"
                 />

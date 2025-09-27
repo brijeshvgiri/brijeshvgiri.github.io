@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Calendar, Star, Users, Zap } from "lucide-react";
+import { Github, ExternalLink, Calendar, Star, Users, Zap, Bug, Globe, Smartphone } from "lucide-react";
+import { PERSONAL_INFO } from "@/config/portfolio";
 
 interface Project {
   title: string;
@@ -11,6 +12,7 @@ interface Project {
   duration: string;
   githubUrl?: string;
   liveUrl?: string;
+  projectUrl?: string;
   featured?: boolean;
   type?: string;
   icon?: React.ReactNode;
@@ -30,6 +32,8 @@ export default function Projects() {
       duration: "Apr 2025 - Present",
       featured: true,
       type: "Open Source",
+      projectUrl: `https://summerofcode.withgoogle.com/programs/2025/projects/uxcDW4j2`,
+      githubUrl: `https://issues.chromium.org/issues/427204855`,
       icon: <Star className="h-5 w-5 text-yellow-500" />
     },
     {
@@ -42,8 +46,8 @@ export default function Projects() {
       ],
       technologies: ["JavaScript", "React", "Express", "Node.js", "MongoDB", "Cypress", "JWT", "MERN Stack"],
       duration: "Jan 2025 – Apr 2025",
-      githubUrl: "#",
-      liveUrl: "#",
+      githubUrl: `https://github.com/brijesh-giri-neu/StackOverflow-Clone`,
+      // liveUrl: "#",
       featured: true,
       type: "Web Application",
       icon: <Users className="h-5 w-5 text-blue-500" />
@@ -58,7 +62,7 @@ export default function Projects() {
       ],
       technologies: ["Java", "Android Studio", "Firebase", "Material Design", "JUnit", "Github Actions", "MVVM"],
       duration: "May 2025 – Aug 2025",
-      githubUrl: "#",
+      githubUrl: `https://github.com/brijesh-giri-neu/budget-manager`,
       type: "Mobile App",
       icon: <Zap className="h-5 w-5 text-green-500" />
     }
@@ -154,8 +158,29 @@ export default function Projects() {
                         onClick={() => window.open(project.githubUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-github-${index}`}
                       >
-                        <Github className="mr-2 h-4 w-4" />
-                        Code
+                        {project.type === "Open Source" ? (
+                          <Bug className="mr-2 h-4 w-4" />
+                        ) : (
+                          <Github className="mr-2 h-4 w-4" />
+                        )}
+                        {project.type === "Open Source" ? "Issue" : "Code"}
+                      </Button>
+                    )}
+                    {project.projectUrl && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.open(project.projectUrl, '_blank', 'noopener,noreferrer')}
+                        data-testid={`button-project-${index}`}
+                      >
+                        {project.type === "Open Source" ? (
+                          <Star className="mr-2 h-4 w-4" />
+                        ) : project.type === "Mobile App" ? (
+                          <Smartphone className="mr-2 h-4 w-4" />
+                        ) : (
+                          <Globe className="mr-2 h-4 w-4" />
+                        )}
+                        {project.type === "Open Source" ? "Project" : "Live Demo"}
                       </Button>
                     )}
                     {project.liveUrl && (
@@ -165,7 +190,11 @@ export default function Projects() {
                         onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-live-${index}`}
                       >
-                        <ExternalLink className="mr-2 h-4 w-4" />
+                        {project.type === "Mobile App" ? (
+                          <Smartphone className="mr-2 h-4 w-4" />
+                        ) : (
+                          <Globe className="mr-2 h-4 w-4" />
+                        )}
                         Live Demo
                       </Button>
                     )}
@@ -179,7 +208,7 @@ export default function Projects() {
         <div className="text-center mt-12">
           <Button 
             variant="outline" 
-            onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+            onClick={() => window.open(`${PERSONAL_INFO.github}?tab=repositories`, '_blank', 'noopener,noreferrer')}
             data-testid="button-view-all-projects"
           >
             <Github className="mr-2 h-4 w-4" />

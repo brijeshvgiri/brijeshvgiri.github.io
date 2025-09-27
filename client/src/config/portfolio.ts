@@ -169,6 +169,8 @@ export const EDUCATION: EducationItem[] = [
 export const PERSONAL_INFO = {
   name: "Brijesh Giri",
   location: "United States",
+  // Used for footer section
+  title: "Software Engineer & Full Stack Developer",
   email: "brijeshveerbahadur@gmail.com",
   linkedin: "https://linkedin.com/in/brijeshvbgiri98",
   github: "https://github.com/brijesh-giri-neu",

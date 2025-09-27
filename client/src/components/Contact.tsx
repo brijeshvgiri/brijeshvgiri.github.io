@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin, Github, ExternalLink, Share2 } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, Share2 as SocialShare } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
-import { FaChrome } from "react-icons/fa";
+import { FaChrome as Chrome } from "react-icons/fa";
 
 export default function Contact() {
   const contactInfo = [
@@ -36,7 +36,7 @@ export default function Contact() {
       testId: "button-social-github"
     },
     {
-      icon: <FaChrome className="h-5 w-5" />,
+      icon: <Chrome className="h-5 w-5" />,
       label: "Gerrit",
       url: PERSONAL_INFO.gerrit,
       testId: "button-social-chromium"
@@ -100,7 +100,7 @@ export default function Contact() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
                   <div className="bg-primary/10 p-2 rounded-lg">
-                    <Share2 className="h-5 w-5 text-primary" />
+                    <SocialShare className="h-5 w-5 text-primary" />
                   </div>
                   Social & Professional
                 </CardTitle>
@@ -139,7 +139,7 @@ export default function Contact() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button 
-                  onClick={() => window.open('mailto:brijeshveerbahadur@gmail.com?subject=Let\'s Connect')}
+                  onClick={() => window.open(`mailto:${PERSONAL_INFO.email}?subject=Let's Connect`)}
                   className="bg-primary hover:bg-primary/90"
                   data-testid="button-primary-contact"
                 >
@@ -148,7 +148,7 @@ export default function Contact() {
                 </Button>
                 <Button 
                   variant="outline"
-                  onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank', 'noopener,noreferrer')}
+                  onClick={() => window.open(PERSONAL_INFO.linkedin, '_blank', 'noopener,noreferrer')}
                   data-testid="button-linkedin-connect"
                 >
                   <Linkedin className="mr-2 h-4 w-4" />
