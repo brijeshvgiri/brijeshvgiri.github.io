@@ -1,48 +1,10 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, CalendarDays } from "lucide-react";
-
-interface EducationItem {
-  institution: string;
-  degree: string;
-  duration: string;
-  gpa?: string;
-  courses: string[];
-}
+import { EDUCATION } from "@/config/portfolio";
 
 export default function Education() {
-  // todo: remove mock functionality - replace with real data
-  const education: EducationItem[] = [
-    {
-      institution: "Northeastern University",
-      degree: "Master of Science, Computer Science",
-      duration: "Sep 2023 – Dec 2025",
-      gpa: "4.0",
-      courses: [
-        "Program Design Patterns",
-        "Database Management Systems", 
-        "Algorithms",
-        "Mobile Application Development",
-        "Fundamentals of Software Engineering",
-        "Foundations of Artificial Intelligence",
-        "Natural Language Processing"
-      ]
-    },
-    {
-      institution: "University of Mumbai",
-      degree: "Bachelor of Engineering, Computer Engineering",
-      duration: "2015 – 2019",
-      courses: [
-        "Algorithms",
-        "Data Structures",
-        "Operating Systems",
-        "Object Oriented Design",
-        "Cloud Computing",
-        "Database Design",
-        "Distributed Systems"
-      ]
-    }
-  ];
+  const education = EDUCATION;
 
   return (
     <section id="education" className="py-20 bg-background">

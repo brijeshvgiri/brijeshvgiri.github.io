@@ -51,18 +51,18 @@ export interface EducationItem {
 
 // Company Website Configuration
 export const COMPANY_WEBSITES = {
-  "Google": "https://www.google.com",
+  "Google": "https://summerofcode.withgoogle.com/programs/2025/projects/uxcDW4j2",
   "Northeastern University": "https://www.northeastern.edu",
-  "Bracebridge Capital": "https://www.bracebridge.com",
-  "HA Brick": "https://www.habrick.com",
-  "GEP Worldwide": "https://www.gep.com"
+  "Bracebridge Capital": "https://www.bracebridgecapital.com/",
+  "HA Brick": "https://www.habrick.co.in",
+  "GEP Worldwide": "https://www.gep.com/software/gep-smart"
 };
 
 // Experience Data
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    company: "Google",
-    role: "Open Source Contributor — Chrome Team, Google Summer of Code 2025",
+    company: "Google Summer of Code",
+    role: "Open Source Contributor — Google Chrome",
     duration: "Apr 2025 – Present",
     description: [
       "Contributing to Chromium's TabStrip debugging infrastructure using C++ and TypeScript to visualize complex browser state management.",
@@ -167,16 +167,34 @@ export const PROJECTS: Project[] = [
 export const EDUCATION: EducationItem[] = [
   {
     institution: "Northeastern University",
-    degree: "Master of Science in Computer Science",
-    duration: "Sep 2023 – May 2025",
-    gpa: "4.0/4.0",
+    degree: "Master of Science, Computer Science",
+    duration: "Sep 2023 – Dec 2025",
+    gpa: "4.0",
     courses: [
-      "Program Design Paradigm",
+      "Program Design Patterns",
+      "Database Management Systems", 
       "Algorithms",
-      "Database Design",
-      "Web Development",
       "Mobile Application Development",
-      "Software Engineering"
+      "Fundamentals of Software Engineering",
+      "Foundations of Artificial Intelligence",
+      "Natural Language Processing"
+    ]
+  },
+  {
+    institution: "University of Mumbai",
+    degree: "Bachelor of Engineering, Computer Engineering",
+    duration: "Jul 2015 – Jun 2019",
+    courses: [
+      "Algorithms",
+      "Data Structures",
+      "Operating Systems",
+      "Object Oriented Design",
+      "Cloud Computing",
+      "Database Design",
+      "Distributed Systems",
+      "Computer Networks",
+      "Cyber Security",
+      "Digital Forensics",
     ]
   }
 ];
