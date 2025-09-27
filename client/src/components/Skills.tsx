@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code, Globe, Database, Cloud, Settings } from "lucide-react";
+import { CategoryIcons } from "@/components/IconSystem";
 
 interface SkillCategory {
   title: string;
@@ -14,32 +15,32 @@ export default function Skills() {
   const skillCategories: SkillCategory[] = [
     {
       title: "Languages",
-      icon: <Code className="h-5 w-5" />,
+      icon: CategoryIcons["Languages"],
       skills: ["C#", "Java", "Python", "TypeScript", "JavaScript", "C++", "Shell"],
       color: "bg-primary/10 text-primary"
     },
     {
       title: "Web & Frameworks",
-      icon: <Globe className="h-5 w-5" />,
-      skills: [".NET", "Node", "Express", "React", "RESTful Services", "GraphQL", "JUnit", "Jest", "HTML", "CSS"],
+      icon: CategoryIcons["Web & Frameworks"],
+      skills: [".NET", "Node.js", "Express", "React", "RESTful Services", "GraphQL", "JUnit", "Jest", "HTML", "CSS"],
       color: "bg-chart-2/10 text-chart-2"
     },
     {
       title: "Databases",
-      icon: <Database className="h-5 w-5" />,
+      icon: CategoryIcons["Databases"],
       skills: ["MySQL", "MSSQL", "PostgreSQL", "MongoDB", "Redis", "CosmosDB"],
       color: "bg-chart-3/10 text-chart-3"
     },
     {
       title: "Cloud Native",
-      icon: <Cloud className="h-5 w-5" />,
+      icon: CategoryIcons["Cloud Native"],
       skills: ["Apache Kafka", "Azure DevOps", "Docker", "Kubernetes", "Azure Logic App", "Event Grid", "AWS CloudWatch", "SNS"],
       color: "bg-chart-4/10 text-chart-4"
     },
     {
       title: "Tools",
-      icon: <Settings className="h-5 w-5" />,
-      skills: ["Git", "Gitlab", "Jira", "SonarQube", "Android Studio", "Visual Studio", "Selenium", "Jenkins", "Linux", "SQL Sentry", "GitHub Actions", "Gradle"],
+      icon: CategoryIcons["Tools"],
+      skills: ["Git", "GitLab", "Jira", "SonarQube", "Android Studio", "Visual Studio", "Selenium", "Jenkins", "Linux", "SQL Sentry", "GitHub Actions", "Gradle"],
       color: "bg-chart-5/10 text-chart-5"
     }
   ];

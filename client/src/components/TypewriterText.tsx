@@ -59,7 +59,7 @@ export default function TypewriterText({
   return (
     <span className={className} data-testid="typewriter-text">
       {currentText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse opacity-70">|</span>
     </span>
   );
 }

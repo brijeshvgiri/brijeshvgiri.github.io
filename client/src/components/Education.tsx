@@ -8,7 +8,6 @@ interface EducationItem {
   duration: string;
   gpa?: string;
   courses: string[];
-  location: string;
 }
 
 export default function Education() {
@@ -19,22 +18,20 @@ export default function Education() {
       degree: "Master of Science, Computer Science",
       duration: "Sep 2023 – Dec 2025",
       gpa: "4.0",
-      location: "Boston, MA",
       courses: [
         "Program Design Patterns",
-        "Database Systems", 
+        "Database Management Systems", 
         "Algorithms",
-        "Mobile App Development",
-        "Software Engineering",
-        "AI",
-        "LLM"
+        "Mobile Application Development",
+        "Fundamentals of Software Engineering",
+        "Foundations of Artificial Intelligence",
+        "Natural Language Processing"
       ]
     },
     {
-      institution: "Mumbai University",
-      degree: "Bachelor of Engineering, Computer Science & Engineering",
-      duration: "Jul 2015 – Jun 2019",
-      location: "Mumbai, India",
+      institution: "University of Mumbai",
+      degree: "Bachelor of Engineering, Computer Engineering",
+      duration: "2015 – 2019",
       courses: [
         "Algorithms",
         "Data Structures",
@@ -80,9 +77,6 @@ export default function Education() {
                         <h4 className="text-lg font-medium text-primary">
                           {edu.institution}
                         </h4>
-                        <p className="text-muted-foreground text-sm mt-1">
-                          {edu.location}
-                        </p>
                       </div>
                       <div className="flex flex-col lg:text-right gap-2">
                         <div className="flex items-center gap-2 lg:justify-end">

@@ -1,87 +1,11 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays, MapPin } from "lucide-react";
-
-interface ExperienceItem {
-  company: string;
-  role: string;
-  duration: string;
-  location: string;
-  description: string[];
-  skills: string[];
-  current?: boolean;
-}
+import { CalendarDays, ExternalLink } from "lucide-react";
+import { CompanyIcon } from "@/components/IconSystem";
+import { EXPERIENCES } from "@/config/portfolio";
 
 export default function Experience() {
-  // todo: remove mock functionality - replace with real data
-  const experiences: ExperienceItem[] = [
-    {
-      company: "Google",
-      role: "Open Source Contributor — Chrome Team, Google Summer of Code 2025",
-      duration: "Apr 2025 – Present",
-      location: "Remote",
-      description: [
-        "Architected and developed advanced debugging tools for Chromium's TabStrip microservices architecture using C++ and Mojo IPC patterns.",
-        "Implemented real-time state visualization system capable of handling distributed tab management across multiple browser processes.",
-        "Optimized inter-process communication protocols between browser components, reducing debugging overhead by 40%.",
-        "Collaborated with Google's Chrome team to establish best practices for distributed system debugging in large-scale applications."
-      ],
-      skills: ["C++", "TypeScript", "Chromium", "Microservices", "IPC", "Distributed Systems"],
-      current: true
-    },
-    {
-      company: "Northeastern University",
-      role: "Teaching Assistant — Program Design",
-      duration: "July 2025 – Present",
-      location: "Boston, MA",
-      description: [
-        "Tutored 200+ students in Java, MVC architecture, object oriented design, SOLID principles, design patterns, and JUnit testing.",
-        "Provided guidance on software engineering best practices and code quality standards.",
-        "Assisted in curriculum development and student assessment."
-      ],
-      skills: ["Java", "OOP", "Design Patterns", "JUnit", "Teaching"],
-      current: true
-    },
-    {
-      company: "Bracebridge Capital",
-      role: "Software Engineer Intern",
-      duration: "May 2024 – Nov 2024",
-      location: "Boston, MA",
-      description: [
-        "Designed and implemented high-frequency trading microservices architecture, processing 10K+ transactions/second with sub-millisecond latency.",
-        "Built distributed app deployment platform serving 50+ trading applications with zero-downtime deployments and automatic rollback capabilities.",
-        "Orchestrated containerized microservices ecosystem using Docker and Kubernetes, managing 10+ services with Azure DevOps for CI/CD automation.",
-        "Optimized database query performance across distributed SQL clusters, achieving 25% improvement in trade execution speed."
-      ],
-      skills: ["C#", "Microservices", "Docker", "Kubernetes", "Azure DevOps", "High-Frequency Trading", "Distributed Systems"]
-    },
-    {
-      company: "HA Brick",
-      role: "Full Stack Developer",
-      duration: "Feb 2022 – Jul 2023",
-      location: "Mumbai, India",
-      description: [
-        "Architected and developed cloud-native ERP microservices platform handling 20+ construction projects with event-driven architecture.",
-        "Built scalable microservices for asset tracking, supply chain management, and e-invoicing processing 50K+ transactions monthly.",
-        "Implemented distributed logging and monitoring infrastructure using AWS CloudWatch, ensuring 99.9% system availability.",
-        "Designed GraphQL federation layer connecting 8+ microservices with real-time WebSocket communication for seamless user experience."
-      ],
-      skills: ["C#", ".NET", "Microservices", "Event-Driven Architecture", "AWS", "GraphQL Federation", "WebSockets"]
-    },
-    {
-      company: "GEP Worldwide",
-      role: "Software Engineer",
-      duration: "Jun 2019 – Nov 2021",
-      location: "Mumbai, India",
-      description: [
-        "Architected distributed microservices platform serving Fortune 500 clients with 200K+ concurrent users across global procurement workflows.",
-        "Built horizontally scalable rule processing engine using event-driven architecture, processing 100K+ business rules daily with sub-second response times.",
-        "Designed fault-tolerant distributed system with Azure Service Bus, Redis clustering, and automatic failover supporting 99.99% uptime.",
-        "Implemented bulk invoice processing pipeline handling 10K+ invoices using Apache Kafka and event sourcing patterns for audit compliance."
-      ],
-      skills: ["C#", ".NET Core", "Microservices", "Event Sourcing", "Apache Kafka", "Azure Service Bus", "Distributed Systems"]
-    }
-  ];
+  const experiences = EXPERIENCES;
 
   return (
     <section id="experience" className="py-20 bg-muted/20">
@@ -95,69 +19,97 @@ export default function Experience() {
           </p>
         </div>
 
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {experiences.map((exp, index) => (
-            <Card 
-              key={index} 
-              className="relative overflow-hidden hover-elevate transition-all duration-300"
-              data-testid={`card-experience-${index}`}
-            >
-              {exp.current && (
-                <div className="absolute top-0 right-0">
-                  <Badge className="bg-chart-2 text-white rounded-tl-none rounded-br-none">
-                    Current
-                  </Badge>
-                </div>
-              )}
-              
-              <CardHeader className="pb-4">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      {exp.role}
-                    </h3>
-                    <h4 className="text-lg font-medium text-primary">
-                      {exp.company}
-                    </h4>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20"></div>
+          
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div 
+                key={index} 
+                className="relative flex items-start gap-8"
+                data-testid={`timeline-item-${index}`}
+              >
+                {/* Timeline dot */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className={`w-16 h-16 rounded-full border-4 border-background flex items-center justify-center ${
+                    exp.current 
+                      ? 'bg-chart-2 shadow-lg shadow-chart-2/30' 
+                      : 'bg-primary shadow-lg shadow-primary/30'
+                  }`}>
+                    <CompanyIcon company={exp.company} className="w-8 h-8" />
                   </div>
-                  <div className="flex flex-col lg:text-right text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2 lg:justify-end">
-                      <CalendarDays className="h-4 w-4" />
-                      <span data-testid={`text-duration-${index}`}>{exp.duration}</span>
+                  {exp.current && (
+                    <div className="absolute -top-2 -right-2">
+                      <Badge className="bg-chart-2 text-white text-xs">
+                        Current
+                      </Badge>
                     </div>
-                    <div className="flex items-center gap-2 lg:justify-end mt-1">
-                      <MapPin className="h-4 w-4" />
-                      <span data-testid={`text-location-${index}`}>{exp.location}</span>
-                    </div>
-                  </div>
+                  )}
                 </div>
-              </CardHeader>
 
-              <CardContent className="space-y-4">
-                <ul className="space-y-2">
-                  {exp.description.map((item, descIndex) => (
-                    <li key={descIndex} className="flex text-muted-foreground">
-                      <span className="text-primary mr-3 mt-1">•</span>
-                      <span className="leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <Card className="hover-elevate transition-all duration-300">
+                    <CardHeader className="pb-4">
+                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-foreground mb-1">
+                            {exp.role}
+                          </h3>
+                          <div className="flex items-center gap-3">
+                            {exp.website ? (
+                              <a
+                                href={exp.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-lg font-medium text-primary hover:text-primary/80 dark:hover:text-blue-300 hover:underline transition-colors duration-200 flex items-center gap-2"
+                              >
+                                {exp.company}
+                                <ExternalLink className="h-4 w-4" />
+                              </a>
+                            ) : (
+                              <h4 className="text-lg font-medium text-primary">
+                                {exp.company}
+                              </h4>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 lg:justify-end text-sm text-muted-foreground whitespace-nowrap">
+                          <CalendarDays className="h-4 w-4" />
+                          <span data-testid={`text-duration-${index}`}>{exp.duration}</span>
+                        </div>
+                      </div>
+                    </CardHeader>
 
-                <div className="flex flex-wrap gap-2 pt-4">
-                  {exp.skills.map((skill, skillIndex) => (
-                    <Badge 
-                      key={skillIndex} 
-                      variant="secondary" 
-                      className="text-xs"
-                      data-testid={`badge-skill-${index}-${skillIndex}`}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
+                    <CardContent className="space-y-4">
+                      <ul className="space-y-2">
+                        {exp.description.map((item, descIndex) => (
+                          <li key={descIndex} className="flex text-muted-foreground">
+                            <span className="text-primary mr-3 mt-1">•</span>
+                            <span className="leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex flex-wrap gap-2 pt-4">
+                        {exp.skills.map((skill, skillIndex) => (
+                          <Badge 
+                            key={skillIndex} 
+                            variant="secondary" 
+                            className="text-xs"
+                            data-testid={`badge-skill-${index}-${skillIndex}`}
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

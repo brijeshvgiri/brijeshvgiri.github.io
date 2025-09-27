@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Calendar } from "lucide-react";
+import { Github, ExternalLink, Calendar, Star, Users, Zap } from "lucide-react";
 
 interface Project {
   title: string;
@@ -12,6 +12,8 @@ interface Project {
   githubUrl?: string;
   liveUrl?: string;
   featured?: boolean;
+  type?: string;
+  icon?: React.ReactNode;
 }
 
 export default function Projects() {
@@ -19,43 +21,46 @@ export default function Projects() {
   const projects: Project[] = [
     {
       title: "Google Summer of Code 2025 - Chrome Team",
-      description: "Debugging tools for Chromium's TabStrip model to aid complex tab and session behavior analysis",
+      description: "Developing debugging tools for Chromium's TabStrip model to aid complex tab and session behavior analysis",
       details: [
-        "Architecting distributed debugging infrastructure for Chromium's multi-process browser architecture with real-time state synchronization",
-        "Building scalable visualization system for complex tab management microservices handling millions of browser sessions globally",
-        "Implementing advanced IPC communication patterns and distributed state management for debugging complex browser behaviors",
-        "Contributing to open-source Chromium project with focus on developer tooling and distributed systems observability"
+        "Developing a feature for Google's Chrome team through Google Summer of Code 2025 to capture and visualize the live backend state of the tabstrip model—including tab order, group metadata, selection models, and session restore data—using C++, Mojo IPC, and TypeScript to aid debugging of complex tab and session behaviors across platforms.",
+        "Fixed a bug in Chrome's WebUI TabStrip that prevented thumbnails from updating on theme changes, by extending C++ backend observers to trigger refresh logic in the ViewModel."
       ],
-      technologies: ["C++", "TypeScript", "Distributed Systems", "Mojo IPC", "Microservices", "Open Source"],
+      technologies: ["C++", "TypeScript", "Mojo IPC", "Chromium", "Debugging", "WebUI"],
       duration: "Apr 2025 - Present",
-      featured: true
+      featured: true,
+      type: "Open Source",
+      icon: <Star className="h-5 w-5 text-yellow-500" />
     },
     {
-      title: "Q&A Web Platform",
-      description: "Full-stack Q&A web application with modern architecture and comprehensive testing",
+      title: "Stack Overflow-like Q&A Platform",
+      description: "Full-stack Q&A web application using MERN stack with MVVM pattern and comprehensive testing",
       details: [
-        "Architected microservices-based Q&A platform with event-driven architecture supporting real-time notifications and search",
-        "Implemented horizontal scaling with load balancing across multiple Node.js instances handling 10K+ concurrent users",
-        "Built distributed caching layer with Redis for session management and MongoDB for persistent data with automatic sharding",
-        "Designed comprehensive testing strategy with Cypress E2E tests and CI/CD pipeline ensuring 99% uptime"
+        "Built a full-stack Q&A web application using the MERN stack, leveraging the MVVM pattern to ensure separation of concerns, while designing a modular React UI with custom hooks.",
+        "Developed RESTful APIs for CRUD operation and integrated Cypress for end-to-end testing, ensuring UI validation and consistency.",
+        "Designed a scalable backend in Node.js, Express with a MongoDB database to power RESTful APIs, with JWT authentication, rate-limiting, and input validation via middlewares to guard against denial-of-service, XSS, and CSRF security attacks."
       ],
-      technologies: ["Node.js", "Microservices", "React", "MongoDB", "Redis", "Event-Driven Architecture", "Cypress"],
+      technologies: ["JavaScript", "React", "Express", "Node.js", "MongoDB", "Cypress", "JWT", "MERN Stack"],
       duration: "Jan 2025 – Apr 2025",
       githubUrl: "#",
       liveUrl: "#",
-      featured: true
+      featured: true,
+      type: "Web Application",
+      icon: <Users className="h-5 w-5 text-blue-500" />
     },
     {
       title: "Budget Your Life",
-      description: "Android personal finance management app with intelligent location-based features",
+      description: "Android personal finance management app with intelligent location-based features and MVVM architecture",
       details: [
-        "Built using MVVM architecture ensuring separation of concerns and clean code principles",
-        "Implemented GPS location records and smart reminders for automatic billing prompts",
-        "Achieved 95% code coverage through comprehensive JUnit testing and CI/CD with GitHub Actions"
+        "Built an Android app to manage personal finances, leveraging MVVM architecture to ensure separation of concerns and decouple business logic and UI, while using Repository pattern and Factories to interact with databases for expense tracking.",
+        "Implemented intuitive graphs, GPS location records, and smart reminders for automatic billing prompts at frequent locations, as well as regular expenses settings for recurring expenses.",
+        "Achieved 95% code coverage through comprehensive JUnit testing and CI/CD with GitHub Actions."
       ],
-      technologies: ["Java", "Android Studio", "Firebase", "Material Design", "JUnit", "Github Actions"],
+      technologies: ["Java", "Android Studio", "Firebase", "Material Design", "JUnit", "Github Actions", "MVVM"],
       duration: "May 2025 – Aug 2025",
-      githubUrl: "#"
+      githubUrl: "#",
+      type: "Mobile App",
+      icon: <Zap className="h-5 w-5 text-green-500" />
     }
   ];
 
@@ -71,7 +76,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <Card 
               key={index} 
@@ -83,14 +88,28 @@ export default function Projects() {
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <CardTitle className="text-xl mb-2 text-foreground">
-                      {project.title}
+                    <div className="flex items-center gap-3 mb-2">
+                      {project.icon && (
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-muted/50">
+                          {project.icon}
+                        </div>
+                      )}
+                      <CardTitle className="text-xl text-foreground">
+                        {project.title}
+                      </CardTitle>
+                    </div>
+                    <div className="flex items-center gap-2 mb-3">
                       {project.featured && (
-                        <Badge className="ml-2 bg-primary text-primary-foreground">
+                        <Badge className="bg-primary text-primary-foreground">
                           Featured
                         </Badge>
                       )}
-                    </CardTitle>
+                      {project.type && (
+                        <Badge variant="outline" className="text-xs">
+                          {project.type}
+                        </Badge>
+                      )}
+                    </div>
                     <p className="text-muted-foreground leading-relaxed">
                       {project.description}
                     </p>

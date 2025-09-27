@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ArrowDown } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
+// Replace this with your actual photo path
 import profileImage from "@assets/generated_images/Professional_developer_headshot_portrait_8fd63405.png";
 
 export default function Hero() {
@@ -18,8 +19,8 @@ export default function Hero() {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent leading-tight">
-                Brijesh Veer Bahadur Giri
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground dark:text-foreground light:text-primary/80 leading-tight">
+                Brijesh Giri
               </h1>
               <h2 className="text-xl md:text-2xl text-muted-foreground font-medium h-8 md:h-10">
                 <TypewriterText 
@@ -53,7 +54,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4">
               <Button 
                 onClick={() => scrollToSection('contact')}
-                className="bg-primary"
+                className="bg-primary hover:bg-blue-700 dark:hover:bg-blue-500 transition-all duration-200"
                 data-testid="button-contact"
               >
                 <Mail className="mr-2 h-4 w-4" />
@@ -91,20 +92,32 @@ export default function Hero() {
 
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
+            <div className="relative group">
+              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-primary/20 group-hover:shadow-3xl">
                 <img
                   src={profileImage}
                   alt="Brijesh Giri"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:contrast-110 dark:group-hover:brightness-105 dark:group-hover:contrast-105 filter brightness-90 contrast-100 dark:brightness-95 dark:contrast-95 dark:saturate-90"
                   data-testid="img-profile"
                 />
               </div>
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-primary to-chart-2 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-chart-2 to-primary rounded-full opacity-20 animate-pulse delay-1000"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-primary/15 to-chart-2/15 rounded-full opacity-40 animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-chart-2/15 to-primary/15 rounded-full opacity-40 animate-pulse delay-1000"></div>
             </div>
           </div>
+        </div>
+        
+        {/* Explore My Journey Button - Bottom Center */}
+        <div className="flex justify-center mt-16">
+          <Button 
+            onClick={() => scrollToSection('experience')}
+            className="bg-primary hover:bg-blue-700 dark:hover:bg-blue-500 text-white px-8 py-3 text-lg font-medium transition-all duration-200"
+            data-testid="button-explore"
+          >
+            <ArrowDown className="mr-2 h-5 w-5" />
+            Explore My Journey
+          </Button>
         </div>
       </div>
     </section>

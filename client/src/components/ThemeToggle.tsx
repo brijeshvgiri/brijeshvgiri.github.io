@@ -18,7 +18,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="hover-elevate"
+      className="hover-elevate hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-200"
       data-testid="button-theme-toggle"
     >
       {theme === "light" ? (
