@@ -263,10 +263,10 @@ export const HEADER_CONFIG = {
   logo: "<BG/>",
   navigation: [
     { label: "About", id: "about" },
-    { label: "Experience", id: "experience" },
-    { label: "Projects", id: "projects" },
     { label: "Skills", id: "skills" },
+    { label: "Experience", id: "experience" },
     { label: "Education", id: "education" },
+    { label: "Projects", id: "projects" },
     { label: "Contact", id: "contact" }
   ]
 };
