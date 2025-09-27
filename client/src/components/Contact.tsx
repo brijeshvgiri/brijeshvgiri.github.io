@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, ExternalLink, Share2, Code } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 
 export default function Contact() {
@@ -11,13 +11,6 @@ export default function Contact() {
       value: PERSONAL_INFO.email,
       action: () => window.open(`mailto:${PERSONAL_INFO.email}`),
       testId: "button-email"
-    },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      label: "Phone",
-      value: PERSONAL_INFO.phone,
-      action: () => window.open(`tel:${PERSONAL_INFO.phone}`),
-      testId: "button-phone"
     },
     {
       icon: <MapPin className="h-5 w-5" />,
@@ -42,10 +35,10 @@ export default function Contact() {
       testId: "button-social-github"
     },
     {
-      icon: <ExternalLink className="h-5 w-5" />,
-      label: "Resume",
-      url: PERSONAL_INFO.resume,
-      testId: "button-social-resume"
+      icon: <Code className="h-5 w-5" />,
+      label: "Gerrit",
+      url: PERSONAL_INFO.gerrit,
+      testId: "button-social-gerrit"
     }
   ];
 
@@ -106,7 +99,7 @@ export default function Contact() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
                   <div className="bg-primary/10 p-2 rounded-lg">
-                    <Linkedin className="h-5 w-5 text-primary" />
+                    <Share2 className="h-5 w-5 text-primary" />
                   </div>
                   Social & Professional
                 </CardTitle>
