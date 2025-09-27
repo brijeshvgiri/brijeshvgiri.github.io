@@ -107,17 +107,17 @@ export default function Hero() {
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative group">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-primary/20 group-hover:shadow-3xl">
+              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 transition-all duration-300 group-hover:border-primary/40 bg-gradient-to-br from-background/95 to-muted/80">
                 <img
                   src={ASSETS.images.profile.headshot}
                   alt={PERSONAL_INFO.name}
-                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:contrast-110 dark:group-hover:brightness-105 dark:group-hover:contrast-105 filter brightness-90 contrast-100 dark:brightness-95 dark:contrast-95 dark:saturate-90"
+                  className="w-full h-full object-cover object-center transition-all duration-500 ease-out group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110 dark:group-hover:brightness-105 dark:group-hover:contrast-105 filter brightness-110 contrast-105 dark:brightness-115 dark:contrast-105 dark:saturate-95"
                   data-testid="img-profile"
                 />
               </div>
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-primary/15 to-chart-2/15 rounded-full opacity-40 animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-chart-2/15 to-primary/15 rounded-full opacity-40 animate-pulse delay-1000"></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-primary/15 to-chart-2/15 dark:from-primary/25 dark:to-chart-2/25 rounded-full opacity-40 dark:opacity-50 animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-chart-2/15 to-primary/15 dark:from-chart-2/25 dark:to-primary/25 rounded-full opacity-40 dark:opacity-50 animate-pulse delay-1000"></div>
             </div>
           </div>
         </div>
