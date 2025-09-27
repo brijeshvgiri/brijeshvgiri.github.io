@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap, CalendarDays } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 import { EDUCATION } from "@/config/portfolio";
 
 export default function Education() {
@@ -20,7 +20,7 @@ export default function Education() {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20"></div>
+          <div className="absolute left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20"></div>
           
           <div className="space-y-12">
             {education.map((edu, index) => (
@@ -31,8 +31,8 @@ export default function Education() {
               >
                 {/* Timeline dot */}
                 <div className="relative z-10 flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full border-4 border-background bg-primary shadow-lg shadow-primary/30 flex items-center justify-center">
-                    <GraduationCap className="h-8 w-8 text-white" />
+                  <div className="w-24 h-24 rounded-full border-2 border-primary/10 bg-white shadow-sm flex items-center justify-center overflow-hidden">
+                    {edu.icon}
                   </div>
                 </div>
 

@@ -4,11 +4,16 @@
 // Import assets using the @assets alias from vite.config.ts
 import headshotImage from "@assets/images/headshot.png";
 import chromeLogoImage from "@assets/logos/chrome.png";
+import gepLogoImage from "@assets/logos/gep.png";
+import habrickLogoImage from "@assets/logos/habrick.png";
+import neuLogoImage from "@assets/logos/neu.png";
+import muLogoImage from "@assets/logos/mu.png";
+import bracebridgeLogoImage from "@assets/logos/bracebridge.png";
 import resumePDF from "@assets/docs/BrijeshGiri-MSCS.pdf";
 
 // Import icons
 import React from "react";
-import { Code, Globe, Database, Cloud, Settings } from "lucide-react";
+import { Code, Globe, Database, Cloud, Settings, Building2, University, GraduationCap } from "lucide-react";
 
 
 // Asset Configuration
@@ -18,12 +23,23 @@ export const ASSETS = {
       headshot: headshotImage
     },
     companies: {
-      google: chromeLogoImage
+      google: chromeLogoImage,
+      gep: gepLogoImage,
+      habrick: habrickLogoImage,
+      neu: neuLogoImage,
+      mu: muLogoImage,
+      bracebridge: bracebridgeLogoImage
     }
   },
   documents: {
     resume: resumePDF
   }
+} as const;
+
+// Icon Configuration
+export const ICON_CONFIG = {
+  size: "h-20 w-20", // 80px square for circular logos
+  scale: "scale-75" // 75% scale to fit within container
 } as const;
 
 export interface ExperienceItem {
@@ -56,6 +72,7 @@ export interface EducationItem {
   duration: string;
   gpa?: string;
   courses: string[];
+  icon: React.ReactNode;
 }
 
 export interface SkillCategory {
@@ -86,6 +103,11 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     skills: ["C++", "TypeScript", "Mojo IPC", "Chromium", "Debugging", "WebUI"],
     current: true,
+    icon: React.createElement("img", { 
+      src: ASSETS.images.companies.google, 
+      alt: "Google Chrome Logo", 
+      className: `${ICON_CONFIG.size} object-contain ${ICON_CONFIG.scale}` 
+    }),
     website: COMPANY_WEBSITES["Google"]
   },
   {
@@ -98,6 +120,11 @@ export const EXPERIENCES: ExperienceItem[] = [
     ],
     skills: ["Java", "OOP", "Design Patterns", "JUnit", "Teaching", "MVC"],
     current: true,
+    icon: React.createElement("img", { 
+      src: ASSETS.images.companies.neu, 
+      alt: "Northeastern University Logo", 
+      className: `${ICON_CONFIG.size} object-contain ${ICON_CONFIG.scale}` 
+    }),
     website: COMPANY_WEBSITES["Northeastern University"]
   },
   {
@@ -109,6 +136,11 @@ export const EXPERIENCES: ExperienceItem[] = [
       "Established Python project standards and automated CI/CD pipelines, improving team productivity and deployment reliability."
     ],
     skills: ["Python", "C#", "Azure DevOps", "Docker", "CI/CD", "PowerShell", "Unit Testing", "REST APIs"],
+    icon: React.createElement("img", { 
+      src: ASSETS.images.companies.bracebridge, 
+      alt: "Bracebridge Capital Logo", 
+      className: `${ICON_CONFIG.size} object-contain ${ICON_CONFIG.scale}` 
+    }),
     website: COMPANY_WEBSITES["Bracebridge Capital"]
   },
   {
@@ -120,6 +152,11 @@ export const EXPERIENCES: ExperienceItem[] = [
       "Implemented real-time features with GraphQL and WebSockets, plus secure authentication systems."
     ],
     skills: ["C#", ".NET", "React", "TypeScript", "GraphQL", "WebSockets", "OAuth 2.0", "JWT", "SQL"],
+    icon: React.createElement("img", { 
+      src: ASSETS.images.companies.habrick, 
+      alt: "HA Brick Logo", 
+      className: `${ICON_CONFIG.size} object-contain scale-90` 
+    }),
     website: COMPANY_WEBSITES["HA Brick"]
   },
   {
@@ -131,6 +168,11 @@ export const EXPERIENCES: ExperienceItem[] = [
       "Optimized high-volume invoice processing (70K+ invoices) and built event-driven automation features."
     ],
     skills: ["C#", ".NET Core", "REST APIs", "Microservices", "Event-Driven Architecture", "SQL", "Azure", "Apache Kafka"],
+    icon: React.createElement("img", { 
+      src: ASSETS.images.companies.gep, 
+      alt: "GEP Worldwide Logo", 
+      className: `${ICON_CONFIG.size} object-contain scale-90` 
+    }),
     website: COMPANY_WEBSITES["GEP Worldwide"]
   }
 ];
@@ -194,7 +236,12 @@ export const EDUCATION: EducationItem[] = [
       "Fundamentals of Software Engineering",
       "Foundations of Artificial Intelligence",
       "Natural Language Processing"
-    ]
+    ],
+    icon: React.createElement("img", {
+      src: ASSETS.images.companies.neu,
+      alt: "Northeastern University Logo",
+      className: `${ICON_CONFIG.size} object-contain ${ICON_CONFIG.scale}`
+    })
   },
   {
     institution: "University of Mumbai",
@@ -211,7 +258,12 @@ export const EDUCATION: EducationItem[] = [
       "Computer Networks",
       "Cyber Security",
       "Digital Forensics",
-    ]
+    ],
+    icon: React.createElement("img", {
+      src: ASSETS.images.companies.mu,
+      alt: "University of Mumbai Logo",
+      className: `${ICON_CONFIG.size} object-contain ${ICON_CONFIG.scale}`
+    })
   }
 ];
 

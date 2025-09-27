@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, ExternalLink } from "lucide-react";
-import { CompanyIcon } from "@/components/IconSystem";
 import { EXPERIENCES } from "@/config/portfolio";
 
 export default function Experience() {
@@ -21,7 +20,7 @@ export default function Experience() {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20"></div>
+          <div className="absolute left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 z-0"></div>
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -31,10 +30,19 @@ export default function Experience() {
                 data-testid={`timeline-item-${index}`}
               >
                 {/* Timeline dot */}
-                <div className="relative z-10 flex-shrink-0">
-                  <div className="w-16 h-16 flex items-center justify-center">
-                    <CompanyIcon company={exp.company} size="xl" />
+                <div className="relative z-20 flex-shrink-0 mt-6">
+                  {/* Option 1a: Circular container with white background */}
+                  <div className="w-24 h-24 flex items-center justify-center bg-white rounded-full border-2 border-primary/10 shadow-sm overflow-hidden">
+                    {exp.icon}
                   </div>
+                  
+                  {/* Option 1b: Circular container with theme background - uncomment below and comment above */}
+                  {/* <div className="w-20 h-20 flex items-center justify-center bg-background rounded-full border-2 border-primary/20 shadow-sm">
+                    {exp.icon}
+                  </div> */}
+                  
+                  {/* Option 2: No container - uncomment below and comment above */}
+                  {/* {exp.icon} */}
                   {exp.current && (
                     <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-chart-2 text-white text-xs px-2 py-1 shadow-lg">
