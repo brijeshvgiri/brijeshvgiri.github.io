@@ -1,6 +1,22 @@
 // Centralized Portfolio Configuration
 // Update this file to modify all portfolio content
 
+// Import assets using the @assets alias from vite.config.ts
+import headshotImage from "@assets/generated_images/headshot.png";
+import googleLogoImage from "@assets/stock_images/google_company_logo,_92cae6c5.jpg";
+
+// Asset Configuration
+export const ASSETS = {
+  images: {
+    profile: {
+      headshot: headshotImage
+    },
+    companies: {
+      google: googleLogoImage
+    }
+  }
+} as const;
+
 export interface ExperienceItem {
   company: string;
   role: string;

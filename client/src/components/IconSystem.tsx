@@ -14,17 +14,26 @@ import {
   SiPostgresql, SiMysql, SiGraphql, SiApachekafka, SiJenkins,
   SiAndroidstudio, SiGit, SiGithub, SiGitlab
 } from 'react-icons/si';
+import { ASSETS } from '@/config/portfolio';
 
-// Using generic icons for all companies
-
-// Company Icons - Using generic building icons for all companies
-export const CompanyIcons = {
-  "Google": <FaBuilding className="h-5 w-5 text-blue-500" />,
-  "Northeastern University": <FaUniversity className="h-5 w-5 text-red-600" />,
-  "Bracebridge Capital": <FaBuilding className="h-5 w-5 text-blue-600" />,
-  "HA Brick": <FaBuilding className="h-5 w-5 text-orange-500" />,
-  "GEP Worldwide": <FaBuilding className="h-5 w-5 text-green-600" />
+// Company Assets Configuration
+export const CompanyAssets = {
+  // Company logos (when available)
+  logos: {
+    "Google": ASSETS.images.companies.google
+  },
+  // Fallback icons for companies without logos
+  icons: {
+    "Google": <FaBuilding className="h-5 w-5 text-blue-500" />,
+    "Northeastern University": <FaUniversity className="h-5 w-5 text-red-600" />,
+    "Bracebridge Capital": <FaBuilding className="h-5 w-5 text-blue-600" />,
+    "HA Brick": <FaBuilding className="h-5 w-5 text-orange-500" />,
+    "GEP Worldwide": <FaBuilding className="h-5 w-5 text-green-600" />
+  }
 };
+
+// Legacy CompanyIcons export for backward compatibility
+export const CompanyIcons = CompanyAssets.icons;
 
 // Technology Icons
 export const TechIcons = {
@@ -119,14 +128,41 @@ export const Icon: React.FC<IconProps> = ({ name, className = '', size = 'md' })
 };
 
 // Company Icon Component
-export const CompanyIcon: React.FC<{ company: string; className?: string }> = ({ company, className = '' }) => {
-  const icon = (CompanyIcons as any)[company];
+export const CompanyIcon: React.FC<{ 
+  company: string; 
+  className?: string; 
+  useLogo?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+}> = ({ company, className = '', useLogo = true, size = 'md' }) => {
+  const sizeClasses = {
+    sm: 'w-6 h-6',
+    md: 'w-8 h-8',
+    lg: 'w-12 h-12'
+  };
+
+  const logoUrl = useLogo ? (CompanyAssets.logos as any)[company] : null;
+  const icon = (CompanyAssets.icons as any)[company];
+
+  // Use logo if available and requested
+  if (logoUrl && useLogo) {
+    return (
+      <div className={`flex items-center justify-center ${sizeClasses[size]} rounded-lg bg-muted/50 overflow-hidden ${className}`}>
+        <img 
+          src={logoUrl} 
+          alt={`${company} logo`}
+          className="w-full h-full object-contain"
+        />
+      </div>
+    );
+  }
+
+  // Fallback to icon
   return icon ? (
-    <div className={`flex items-center justify-center w-8 h-8 rounded-lg bg-muted/50 ${className}`}>
+    <div className={`flex items-center justify-center ${sizeClasses[size]} rounded-lg bg-muted/50 ${className}`}>
       {icon}
     </div>
   ) : (
-    <div className={`flex items-center justify-center w-8 h-8 rounded-lg bg-muted/50 ${className}`}>
+    <div className={`flex items-center justify-center ${sizeClasses[size]} rounded-lg bg-muted/50 ${className}`}>
       <Building2 className="h-5 w-5 text-muted-foreground" />
     </div>
   );

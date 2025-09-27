@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, MessageCircle } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
-import { HERO_CONTENT, PERSONAL_INFO } from "@/config/portfolio";
+import { HERO_CONTENT, PERSONAL_INFO, ASSETS } from "@/config/portfolio";
 import { FaChrome } from "react-icons/fa";
-// Replace this with your actual photo path
-import profileImage from "@assets/generated_images/Professional_developer_headshot_portrait_8fd63405.png";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -111,7 +109,7 @@ export default function Hero() {
             <div className="relative group">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-primary/20 group-hover:shadow-3xl">
                 <img
-                  src={profileImage}
+                  src={ASSETS.images.profile.headshot}
                   alt={PERSONAL_INFO.name}
                   className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:contrast-110 dark:group-hover:brightness-105 dark:group-hover:contrast-105 filter brightness-90 contrast-100 dark:brightness-95 dark:contrast-95 dark:saturate-90"
                   data-testid="img-profile"
