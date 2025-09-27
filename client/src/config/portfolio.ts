@@ -5,6 +5,11 @@
 import headshotImage from "@assets/images/headshot.png";
 import chromeLogoImage from "@assets/logos/chrome.png";
 
+// Import icons
+import React from "react";
+import { Code, Globe, Database, Cloud, Settings } from "lucide-react";
+
+
 // Asset Configuration
 export const ASSETS = {
   images: {
@@ -47,6 +52,13 @@ export interface EducationItem {
   duration: string;
   gpa?: string;
   courses: string[];
+}
+
+export interface SkillCategory {
+  title: string;
+  icon: React.ReactNode;
+  skills: string[];
+  color: string;
 }
 
 // Company Website Configuration
@@ -196,6 +208,40 @@ export const EDUCATION: EducationItem[] = [
       "Cyber Security",
       "Digital Forensics",
     ]
+  }
+];
+
+// Technical Skills Data
+export const TECHNICAL_SKILLS: SkillCategory[] = [
+  {
+    title: "Languages",
+    icon: React.createElement(Code, { className: "h-6 w-6" }),
+    skills: ["C#", "Java", "Python", "TypeScript", "JavaScript", "C++", "Shell"],
+    color: "bg-primary/10 text-primary"
+  },
+  {
+    title: "Web & Frameworks",
+    icon: React.createElement(Globe, { className: "h-6 w-6" }),
+    skills: [".NET", "Node.js", "Express", "React", "RESTful Services", "GraphQL", "JUnit", "Jest", "HTML", "CSS"],
+    color: "bg-chart-2/10 text-chart-2"
+  },
+  {
+    title: "Databases",
+    icon: React.createElement(Database, { className: "h-6 w-6" }),
+    skills: ["MySQL", "MSSQL", "PostgreSQL", "MongoDB", "Redis", "CosmosDB"],
+    color: "bg-chart-3/10 text-chart-3"
+  },
+  {
+    title: "Cloud Native",
+    icon: React.createElement(Cloud, { className: "h-6 w-6" }),
+    skills: ["Apache Kafka", "Azure DevOps", "Docker", "Kubernetes", "Azure Logic App", "Event Grid", "AWS CloudWatch", "SNS"],
+    color: "bg-chart-4/10 text-chart-4"
+  },
+  {
+    title: "Tools",
+    icon: React.createElement(Settings, { className: "h-6 w-6" }),
+    skills: ["Git", "GitLab", "Jira", "SonarQube", "Android Studio", "Visual Studio", "Selenium", "Jenkins", "Linux", "SQL Sentry", "GitHub Actions", "Gradle"],
+    color: "bg-chart-5/10 text-chart-5"
   }
 ];
 

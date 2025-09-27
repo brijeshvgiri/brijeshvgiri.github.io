@@ -32,16 +32,12 @@ export default function Experience() {
               >
                 {/* Timeline dot */}
                 <div className="relative z-10 flex-shrink-0">
-                  <div className={`w-16 h-16 rounded-full border-4 border-background flex items-center justify-center ${
-                    exp.current 
-                      ? 'bg-chart-2 shadow-lg shadow-chart-2/30' 
-                      : 'bg-primary shadow-lg shadow-primary/30'
-                  }`}>
-                    <CompanyIcon company={exp.company} className="w-8 h-8" />
+                  <div className="w-16 h-16 flex items-center justify-center">
+                    <CompanyIcon company={exp.company} size="xl" />
                   </div>
                   {exp.current && (
-                    <div className="absolute -top-2 -right-2">
-                      <Badge className="bg-chart-2 text-white text-xs">
+                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                      <Badge className="bg-chart-2 text-white text-xs px-2 py-1 shadow-lg">
                         Current
                       </Badge>
                     </div>

@@ -20,11 +20,11 @@ import { ASSETS } from '@/config/portfolio';
 export const CompanyAssets = {
   // Company logos (when available)
   logos: {
-    "Google": ASSETS.images.companies.google
+    "Google Summer of Code": ASSETS.images.companies.google,
   },
   // Fallback icons for companies without logos
   icons: {
-    "Google": <FaBuilding className="h-5 w-5 text-blue-500" />,
+    "Google Summer of Code": <FaBuilding className="h-5 w-5 text-blue-500" />,
     "Northeastern University": <FaUniversity className="h-5 w-5 text-red-600" />,
     "Bracebridge Capital": <FaBuilding className="h-5 w-5 text-blue-600" />,
     "HA Brick": <FaBuilding className="h-5 w-5 text-orange-500" />,
@@ -132,12 +132,13 @@ export const CompanyIcon: React.FC<{
   company: string; 
   className?: string; 
   useLogo?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }> = ({ company, className = '', useLogo = true, size = 'md' }) => {
   const sizeClasses = {
     sm: 'w-6 h-6',
     md: 'w-8 h-8',
-    lg: 'w-12 h-12'
+    lg: 'w-12 h-12',
+    xl: 'w-16 h-16'
   };
 
   const logoUrl = useLogo ? (CompanyAssets.logos as any)[company] : null;

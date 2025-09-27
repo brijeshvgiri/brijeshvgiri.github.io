@@ -1,49 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Globe, Database, Cloud, Settings } from "lucide-react";
-import { CategoryIcons } from "@/components/IconSystem";
-
-interface SkillCategory {
-  title: string;
-  icon: React.ReactNode;
-  skills: string[];
-  color: string;
-}
+import { TECHNICAL_SKILLS } from "@/config/portfolio";
 
 export default function Skills() {
-  // todo: remove mock functionality - replace with real data
-  const skillCategories: SkillCategory[] = [
-    {
-      title: "Languages",
-      icon: CategoryIcons["Languages"],
-      skills: ["C#", "Java", "Python", "TypeScript", "JavaScript", "C++", "Shell"],
-      color: "bg-primary/10 text-primary"
-    },
-    {
-      title: "Web & Frameworks",
-      icon: CategoryIcons["Web & Frameworks"],
-      skills: [".NET", "Node.js", "Express", "React", "RESTful Services", "GraphQL", "JUnit", "Jest", "HTML", "CSS"],
-      color: "bg-chart-2/10 text-chart-2"
-    },
-    {
-      title: "Databases",
-      icon: CategoryIcons["Databases"],
-      skills: ["MySQL", "MSSQL", "PostgreSQL", "MongoDB", "Redis", "CosmosDB"],
-      color: "bg-chart-3/10 text-chart-3"
-    },
-    {
-      title: "Cloud Native",
-      icon: CategoryIcons["Cloud Native"],
-      skills: ["Apache Kafka", "Azure DevOps", "Docker", "Kubernetes", "Azure Logic App", "Event Grid", "AWS CloudWatch", "SNS"],
-      color: "bg-chart-4/10 text-chart-4"
-    },
-    {
-      title: "Tools",
-      icon: CategoryIcons["Tools"],
-      skills: ["Git", "GitLab", "Jira", "SonarQube", "Android Studio", "Visual Studio", "Selenium", "Jenkins", "Linux", "SQL Sentry", "GitHub Actions", "Gradle"],
-      color: "bg-chart-5/10 text-chart-5"
-    }
-  ];
+  const skillCategories = TECHNICAL_SKILLS;
 
   return (
     <section id="skills" className="py-20 bg-muted/20">
