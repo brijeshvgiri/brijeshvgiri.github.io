@@ -262,7 +262,7 @@ export const EDUCATION: EducationItem[] = [
     icon: React.createElement("img", {
       src: ASSETS.images.companies.mu,
       alt: "University of Mumbai Logo",
-      className: `${ICON_CONFIG.size} object-contain ${ICON_CONFIG.scale}`
+      className: `${ICON_CONFIG.size} object-contain scale-125`
     })
   }
 ];
