@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ExternalLink, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ArrowDown, MessageCircle } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
 import { HERO_CONTENT, PERSONAL_INFO } from "@/config/portfolio";
 import { FaChrome } from "react-icons/fa";
@@ -57,7 +57,7 @@ export default function Hero() {
                 className="bg-primary hover:bg-blue-700 dark:hover:bg-blue-500 transition-all duration-200"
                 data-testid="button-contact"
               >
-                <Mail className="mr-2 h-4 w-4" />
+                <MessageCircle className="mr-2 h-4 w-4" />
                 Get In Touch
               </Button>
               <Button 
@@ -94,6 +94,14 @@ export default function Hero() {
                 data-testid="button-chromium"
               >
                 <FaChrome className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => window.open(`mailto:${PERSONAL_INFO.email}`)}
+                data-testid="button-email"
+              >
+                <Mail className="h-5 w-5" />
               </Button>
             </div>
           </div>

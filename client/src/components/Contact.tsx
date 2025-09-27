@@ -56,8 +56,8 @@ export default function Contact() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Information */}
+          {/* Social & Professional */}          
+          {/* <div className="grid md:grid-cols-2 gap-8">
             <Card className="hover-elevate transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
@@ -95,7 +95,6 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            {/* Social Links */}
             <Card className="hover-elevate transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
@@ -125,7 +124,7 @@ export default function Contact() {
                 ))}
               </CardContent>
             </Card>
-          </div>
+          </div> */}
 
           {/* Call to Action */}
           <div className="text-center mt-12">
