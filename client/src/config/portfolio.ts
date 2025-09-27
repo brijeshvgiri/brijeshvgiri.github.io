@@ -2,8 +2,8 @@
 // Update this file to modify all portfolio content
 
 // Import assets using the @assets alias from vite.config.ts
-import headshotImage from "@assets/generated_images/headshot.png";
-import googleLogoImage from "@assets/stock_images/google_company_logo,_92cae6c5.jpg";
+import headshotImage from "@assets/images/headshot.png";
+import chromeLogoImage from "@assets/logos/chrome.png";
 
 // Asset Configuration
 export const ASSETS = {
@@ -12,7 +12,7 @@ export const ASSETS = {
       headshot: headshotImage
     },
     companies: {
-      google: googleLogoImage
+      google: chromeLogoImage
     }
   }
 } as const;
