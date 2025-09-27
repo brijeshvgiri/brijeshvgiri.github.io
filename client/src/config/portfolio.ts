@@ -4,6 +4,7 @@
 // Import assets using the @assets alias from vite.config.ts
 import headshotImage from "@assets/images/headshot.png";
 import chromeLogoImage from "@assets/logos/chrome.png";
+import resumePDF from "@assets/docs/BrijeshGiri-MSCS.pdf";
 
 // Import icons
 import React from "react";
@@ -19,6 +20,9 @@ export const ASSETS = {
     companies: {
       google: chromeLogoImage
     }
+  },
+  documents: {
+    resume: resumePDF
   }
 } as const;
 
@@ -255,7 +259,7 @@ export const PERSONAL_INFO = {
   linkedin: "https://linkedin.com/in/brijeshvbgiri98",
   github: "https://github.com/brijesh-giri-neu",
   gerrit: "https://chromium-review.googlesource.com/q/owner:brijeshvgiri@gmail.com",
-  resume: "#"
+  resume: ASSETS.documents.resume
 };
 
 // Header Configuration

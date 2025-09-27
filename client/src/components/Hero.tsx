@@ -60,7 +60,7 @@ export default function Hero() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+                onClick={() => window.open(ASSETS.documents.resume, '_blank', 'noopener,noreferrer')}
                 data-testid="button-resume"
               >
                 <ExternalLink className="mr-2 h-4 w-4" />
