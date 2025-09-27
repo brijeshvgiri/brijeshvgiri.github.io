@@ -8,7 +8,10 @@ export default function Hero() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ 
+        block: 'start',
+        inline: 'nearest'
+      });
     }
   };
 
@@ -26,11 +29,12 @@ export default function Hero() {
                 <TypewriterText 
                   texts={[
                     "Software Engineer & Full Stack Developer",
-                    "Google Open Source Contributor", 
+                    "Open Source @ Google Chrome", 
+                    "C++ Developer",
                     "Microservices & Cloud Architect",
-                    "Scalable Systems Engineer"
+                    "Backend Engineer"
                   ]}
-                  speed={100}
+                  speed={60}
                   deleteSpeed={50}
                   delayBetween={3000}
                 />

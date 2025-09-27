@@ -9,7 +9,10 @@ export default function Header() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ 
+        block: 'start',
+        inline: 'nearest'
+      });
       setIsMenuOpen(false);
     }
   };

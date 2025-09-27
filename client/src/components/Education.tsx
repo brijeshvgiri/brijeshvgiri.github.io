@@ -56,71 +56,81 @@ export default function Education() {
           </p>
         </div>
 
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {education.map((edu, index) => (
-            <Card 
-              key={index} 
-              className="hover-elevate transition-all duration-300"
-              data-testid={`card-education-${index}`}
-            >
-              <CardHeader className="pb-4">
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <GraduationCap className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2">
-                      <div>
-                        <h3 className="text-xl font-semibold text-foreground mb-1">
-                          {edu.degree}
-                        </h3>
-                        <h4 className="text-lg font-medium text-primary">
-                          {edu.institution}
-                        </h4>
-                      </div>
-                      <div className="flex flex-col lg:text-right gap-2">
-                        <div className="flex items-center gap-2 lg:justify-end">
-                          <CalendarDays className="h-4 w-4 text-muted-foreground" />
-                          <span 
-                            className="text-sm text-muted-foreground"
-                            data-testid={`text-duration-${index}`}
-                          >
-                            {edu.duration}
-                          </span>
-                        </div>
-                        {edu.gpa && (
-                          <Badge 
-                            className="bg-chart-2 text-white self-start lg:self-end"
-                            data-testid={`badge-gpa-${index}`}
-                          >
-                            GPA: {edu.gpa}
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20"></div>
+          
+          <div className="space-y-12">
+            {education.map((edu, index) => (
+              <div 
+                key={index} 
+                className="relative flex items-start gap-8"
+                data-testid={`timeline-item-${index}`}
+              >
+                {/* Timeline dot */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full border-4 border-background bg-primary shadow-lg shadow-primary/30 flex items-center justify-center">
+                    <GraduationCap className="h-8 w-8 text-white" />
                   </div>
                 </div>
-              </CardHeader>
 
-              <CardContent>
-                <div>
-                  <h5 className="font-medium text-foreground mb-3">Relevant Coursework:</h5>
-                  <div className="flex flex-wrap gap-2">
-                    {edu.courses.map((course, courseIndex) => (
-                      <Badge 
-                        key={courseIndex} 
-                        variant="outline" 
-                        className="text-xs"
-                        data-testid={`badge-course-${index}-${courseIndex}`}
-                      >
-                        {course}
-                      </Badge>
-                    ))}
-                  </div>
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <Card className="hover-elevate transition-all duration-300">
+                    <CardHeader className="pb-4">
+                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-foreground mb-1">
+                            {edu.degree}
+                          </h3>
+                          <h4 className="text-lg font-medium text-primary">
+                            {edu.institution}
+                          </h4>
+                        </div>
+                        <div className="flex flex-col lg:text-right gap-2">
+                          <div className="flex items-center gap-2 lg:justify-end">
+                            <CalendarDays className="h-4 w-4 text-muted-foreground" />
+                            <span 
+                              className="text-sm text-muted-foreground whitespace-nowrap"
+                              data-testid={`text-duration-${index}`}
+                            >
+                              {edu.duration}
+                            </span>
+                          </div>
+                          {edu.gpa && (
+                            <Badge 
+                              className="bg-chart-2 text-white self-start lg:self-end"
+                              data-testid={`badge-gpa-${index}`}
+                            >
+                              GPA: {edu.gpa}
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent>
+                      <div>
+                        <h5 className="font-medium text-foreground mb-3">Relevant Coursework:</h5>
+                        <div className="flex flex-wrap gap-2">
+                          {edu.courses.map((course, courseIndex) => (
+                            <Badge 
+                              key={courseIndex} 
+                              variant="outline" 
+                              className="text-xs"
+                              data-testid={`badge-course-${index}-${courseIndex}`}
+                            >
+                              {course}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

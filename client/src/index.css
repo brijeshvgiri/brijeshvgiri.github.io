@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 /* Hand wave animation */
 @keyframes wave {
   0%, 100% { transform: rotate(0deg); }
