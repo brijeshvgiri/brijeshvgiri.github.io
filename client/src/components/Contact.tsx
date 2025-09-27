@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin, Github, ExternalLink, Share2, Code } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, ExternalLink, Share2 } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
+import { FaChrome } from "react-icons/fa";
 
 export default function Contact() {
   const contactInfo = [
@@ -35,10 +36,10 @@ export default function Contact() {
       testId: "button-social-github"
     },
     {
-      icon: <Code className="h-5 w-5" />,
+      icon: <FaChrome className="h-5 w-5" />,
       label: "Gerrit",
       url: PERSONAL_INFO.gerrit,
-      testId: "button-social-gerrit"
+      testId: "button-social-chromium"
     }
   ];
 

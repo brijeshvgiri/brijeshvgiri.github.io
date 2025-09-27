@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
 import { HERO_CONTENT, PERSONAL_INFO } from "@/config/portfolio";
+import { FaChrome } from "react-icons/fa";
 // Replace this with your actual photo path
 import profileImage from "@assets/generated_images/Professional_developer_headshot_portrait_8fd63405.png";
 
@@ -37,14 +38,17 @@ export default function Hero() {
               <div className="flex items-center gap-2 text-muted-foreground">
                 <span>{HERO_CONTENT.status.location}</span>
                 <span>•</span>
-                <span className="text-chart-2 font-medium">{HERO_CONTENT.status.availability}</span>
+                <span className="text-chart-2 font-medium dark:text-green-400">{HERO_CONTENT.status.availability}</span>
                 <span>•</span>
-                <span className="text-primary font-medium">{HERO_CONTENT.status.currentRole}</span>
+                <span className="text-primary font-medium dark:text-blue-400">{HERO_CONTENT.status.currentRole}</span>
               </div>
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              {HERO_CONTENT.description}
+              MS Computer Science graduate from Northeastern University with 4.0 GPA, specializing in distributed systems 
+              and microservices architecture. Currently contributing to <span className="text-primary font-semibold dark:text-blue-400">Google's Chrome team</span> through 
+              Google Summer of Code 2025, with 3+ years of experience building scalable, cloud-native applications and 
+              high-performance backend systems.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -82,6 +86,14 @@ export default function Hero() {
                 data-testid="button-github"
               >
                 <Github className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => window.open(PERSONAL_INFO.gerrit, '_blank', 'noopener,noreferrer')}
+                data-testid="button-chromium"
+              >
+                <FaChrome className="h-5 w-5" />
               </Button>
             </div>
           </div>

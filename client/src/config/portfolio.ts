@@ -168,12 +168,11 @@ export const EDUCATION: EducationItem[] = [
 // Personal Information
 export const PERSONAL_INFO = {
   name: "Brijesh Giri",
-  title: "Software Engineer & Full Stack Developer",
   location: "United States",
   email: "brijeshveerbahadur@gmail.com",
-  linkedin: "https://linkedin.com/in/brijeshgiri",
-  github: "https://github.com/brijeshgiri",
-  gerrit: "https://gerrit-review.googlesource.com/q/owner:brijeshgiri",
+  linkedin: "https://linkedin.com/in/brijeshvbgiri98",
+  github: "https://github.com/brijesh-giri-neu",
+  gerrit: "https://chromium-review.googlesource.com/q/owner:brijeshvgiri@gmail.com",
   resume: "#"
 };
 
@@ -209,6 +208,6 @@ export const HERO_CONTENT = {
   status: {
     location: "United States",
     availability: "Open to Work",
-    currentRole: "Google Contributor"
+    currentRole: "Open Source Contributor"
   }
 };
