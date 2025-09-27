@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
+import { HERO_CONTENT, PERSONAL_INFO } from "@/config/portfolio";
 // Replace this with your actual photo path
 import profileImage from "@assets/generated_images/Professional_developer_headshot_portrait_8fd63405.png";
 
@@ -23,36 +24,27 @@ export default function Hero() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground dark:text-foreground light:text-primary/80 leading-tight">
-                Brijesh Giri
+                {HERO_CONTENT.greeting}
               </h1>
               <h2 className="text-xl md:text-2xl text-muted-foreground font-medium h-8 md:h-10">
                 <TypewriterText 
-                  texts={[
-                    "Software Engineer & Full Stack Developer",
-                    "Open Source @ Google Chrome", 
-                    "C++ Developer",
-                    "Microservices & Cloud Architect",
-                    "Backend Engineer"
-                  ]}
-                  speed={60}
-                  deleteSpeed={50}
-                  delayBetween={3000}
+                  texts={HERO_CONTENT.typewriterTexts}
+                  speed={HERO_CONTENT.typewriterSettings.speed}
+                  deleteSpeed={HERO_CONTENT.typewriterSettings.deleteSpeed}
+                  delayBetween={HERO_CONTENT.typewriterSettings.delayBetween}
                 />
               </h2>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <span>Boston, MA</span>
+                <span>{HERO_CONTENT.status.location}</span>
                 <span>•</span>
-                <span className="text-chart-2 font-medium">Open to Work</span>
+                <span className="text-chart-2 font-medium">{HERO_CONTENT.status.availability}</span>
                 <span>•</span>
-                <span className="text-primary font-medium">Google Contributor</span>
+                <span className="text-primary font-medium">{HERO_CONTENT.status.currentRole}</span>
               </div>
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              MS Computer Science graduate from Northeastern University with 4.0 GPA, specializing in distributed systems 
-              and microservices architecture. Currently contributing to <span className="text-primary font-semibold">Google's Chrome team</span> through 
-              Google Summer of Code 2025, with 3+ years of experience building scalable, cloud-native applications and 
-              high-performance backend systems.
+              {HERO_CONTENT.description}
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -78,7 +70,7 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => window.open('https://linkedin.com/in/brijeshgiri', '_blank', 'noopener,noreferrer')}
+                onClick={() => window.open(PERSONAL_INFO.linkedin, '_blank', 'noopener,noreferrer')}
                 data-testid="button-linkedin"
               >
                 <Linkedin className="h-5 w-5" />
@@ -86,7 +78,7 @@ export default function Hero() {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => window.open('#', '_blank', 'noopener,noreferrer')}
+                onClick={() => window.open(PERSONAL_INFO.github, '_blank', 'noopener,noreferrer')}
                 data-testid="button-github"
               >
                 <Github className="h-5 w-5" />

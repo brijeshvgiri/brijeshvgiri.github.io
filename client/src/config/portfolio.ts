@@ -177,14 +177,38 @@ export const PERSONAL_INFO = {
   resume: "#"
 };
 
+// Header Configuration
+export const HEADER_CONFIG = {
+  logo: "<BG/>",
+  navigation: [
+    { label: "About", id: "about" },
+    { label: "Experience", id: "experience" },
+    { label: "Projects", id: "projects" },
+    { label: "Skills", id: "skills" },
+    { label: "Education", id: "education" },
+    { label: "Contact", id: "contact" }
+  ]
+};
+
 // Hero Section Content
 export const HERO_CONTENT = {
   greeting: "Hello, I'm Brijesh",
   typewriterTexts: [
     "Software Engineer & Full Stack Developer",
-    "Google Open Source Contributor",
-    "Full Stack Developer",
+    "Open Source @ Google Chrome", 
+    "C++ Developer",
+    "Microservices & Cloud Architect",
     "Backend Engineer"
   ],
-  description: "MS Computer Science graduate from Northeastern University with 4.0 GPA, specializing in distributed systems and microservices architecture. Currently contributing to Google's Chrome team through Google Summer of Code 2025, with 3+ years of experience building scalable, cloud-native applications and high-performance backend systems."
+  description: "MS Computer Science graduate from Northeastern University with 4.0 GPA, specializing in distributed systems and microservices architecture. Currently contributing to Google's Chrome team through Google Summer of Code 2025, with 3+ years of experience building scalable, cloud-native applications and high-performance backend systems.",
+  typewriterSettings: {
+    speed: 60,
+    deleteSpeed: 50,
+    delayBetween: 3000
+  },
+  status: {
+    location: "Boston, MA",
+    availability: "Open to Work",
+    currentRole: "Google Contributor"
+  }
 };

@@ -1,27 +1,28 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink } from "lucide-react";
+import { PERSONAL_INFO } from "@/config/portfolio";
 
 export default function Contact() {
   const contactInfo = [
     {
       icon: <Mail className="h-5 w-5" />,
       label: "Email",
-      value: "brijeshveerbahadur@gmail.com",
-      action: () => window.open('mailto:brijeshveerbahadur@gmail.com'),
+      value: PERSONAL_INFO.email,
+      action: () => window.open(`mailto:${PERSONAL_INFO.email}`),
       testId: "button-email"
     },
     {
       icon: <Phone className="h-5 w-5" />,
       label: "Phone",
-      value: "(857) 230-0623",
-      action: () => window.open('tel:+18572300623'),
+      value: PERSONAL_INFO.phone,
+      action: () => window.open(`tel:${PERSONAL_INFO.phone}`),
       testId: "button-phone"
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
-      value: "Boston, MA",
+      value: PERSONAL_INFO.location,
       action: null,
       testId: "text-location"
     }
@@ -31,20 +32,20 @@ export default function Contact() {
     {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
-      url: "https://linkedin.com/in/brijeshgiri",
+      url: PERSONAL_INFO.linkedin,
       testId: "button-social-linkedin"
     },
     {
       icon: <Github className="h-5 w-5" />,
       label: "GitHub",
-      url: "#",
+      url: PERSONAL_INFO.github,
       testId: "button-social-github"
     },
     {
       icon: <ExternalLink className="h-5 w-5" />,
-      label: "Portfolio",
-      url: "#",
-      testId: "button-social-portfolio"
+      label: "Resume",
+      url: PERSONAL_INFO.resume,
+      testId: "button-social-resume"
     }
   ];
 
