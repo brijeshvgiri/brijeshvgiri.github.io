@@ -64,6 +64,7 @@ export interface Project {
   technologies: string[];
   duration: string;
   githubUrl?: string;
+  projectUrl?: string;
   liveUrl?: string;
   featured?: boolean;
   type?: string;
