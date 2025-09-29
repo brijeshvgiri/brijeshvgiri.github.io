@@ -16,6 +16,7 @@ export default defineConfig({
         ]
       : []),
   ],
+  base: "/brijeshgiri.github.io/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
