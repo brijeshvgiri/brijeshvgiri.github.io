@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PERSONAL_INFO } from "@/config/portfolio";
+import { PERSONAL_INFO, ICON_CONFIG } from "@/config/portfolio";
 import { FaChrome } from "react-icons/fa";
 
 export default function Footer() {
@@ -28,7 +28,7 @@ export default function Footer() {
               onClick={() => window.open(PERSONAL_INFO.linkedin, '_blank', 'noopener,noreferrer')}
               data-testid="footer-button-linkedin"
             >
-              <Linkedin className="h-5 w-5" />
+              <Linkedin className={ICON_CONFIG.hero.size} />
             </Button>
             <Button
               variant="ghost"
@@ -36,7 +36,7 @@ export default function Footer() {
               onClick={() => window.open(PERSONAL_INFO.github, '_blank', 'noopener,noreferrer')}
               data-testid="footer-button-github"
             >
-              <Github className="h-5 w-5" />
+              <Github className={ICON_CONFIG.hero.size} />
             </Button>
             <Button
               variant="ghost"
@@ -44,7 +44,7 @@ export default function Footer() {
               onClick={() => window.open(PERSONAL_INFO.gerrit, '_blank', 'noopener,noreferrer')}
               data-testid="footer-button-gerrit"
             >
-              <FaChrome className="h-5 w-5" />
+              <FaChrome className={ICON_CONFIG.hero.size} />
             </Button>
             <Button
               variant="ghost"
@@ -52,7 +52,7 @@ export default function Footer() {
               onClick={() => window.open(`mailto:${PERSONAL_INFO.email}`)}
               data-testid="footer-button-email"
             >
-              <Mail className="h-5 w-5" />
+              <Mail className={ICON_CONFIG.hero.size} />
             </Button>
           </div>
 

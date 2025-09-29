@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Calendar, Star, Users, Zap, Bug, Globe, Smartphone } from "lucide-react";
-import { PERSONAL_INFO } from "@/config/portfolio";
+import { PERSONAL_INFO, PROJECTS } from "@/config/portfolio";
 
 interface Project {
   title: string;
@@ -19,54 +19,7 @@ interface Project {
 }
 
 export default function Projects() {
-  // todo: remove mock functionality - replace with real data
-  const projects: Project[] = [
-    {
-      title: "Google Summer of Code 2025 - Chrome Team",
-      description: "Developing debugging tools for Chromium's TabStrip model to aid complex tab and session behavior analysis",
-      details: [
-        "Developing a feature for Google's Chrome team through Google Summer of Code 2025 to capture and visualize the live backend state of the tabstrip model—including tab order, group metadata, selection models, and session restore data—using C++, Mojo IPC, and TypeScript to aid debugging of complex tab and session behaviors across platforms.",
-        "Fixed a bug in Chrome's WebUI TabStrip that prevented thumbnails from updating on theme changes, by extending C++ backend observers to trigger refresh logic in the ViewModel."
-      ],
-      technologies: ["C++", "TypeScript", "Mojo IPC", "Chromium", "Debugging", "WebUI"],
-      duration: "Apr 2025 - Present",
-      featured: true,
-      type: "Open Source",
-      projectUrl: `https://summerofcode.withgoogle.com/programs/2025/projects/uxcDW4j2`,
-      githubUrl: `https://issues.chromium.org/issues/427204855`,
-      icon: <Star className="h-5 w-5 text-yellow-500" />
-    },
-    {
-      title: "Stack Overflow-like Q&A Platform",
-      description: "Full-stack Q&A web application using MERN stack with MVVM pattern and comprehensive testing",
-      details: [
-        "Built a full-stack Q&A web application using the MERN stack, leveraging the MVVM pattern to ensure separation of concerns, while designing a modular React UI with custom hooks.",
-        "Developed RESTful APIs for CRUD operation and integrated Cypress for end-to-end testing, ensuring UI validation and consistency.",
-        "Designed a scalable backend in Node.js, Express with a MongoDB database to power RESTful APIs, with JWT authentication, rate-limiting, and input validation via middlewares to guard against denial-of-service, XSS, and CSRF security attacks."
-      ],
-      technologies: ["JavaScript", "React", "Express", "Node.js", "MongoDB", "Cypress", "JWT", "MERN Stack"],
-      duration: "Jan 2025 – Apr 2025",
-      githubUrl: `https://github.com/brijesh-giri-neu/StackOverflow-Clone`,
-      // liveUrl: "#",
-      featured: true,
-      type: "Web Application",
-      icon: <Users className="h-5 w-5 text-blue-500" />
-    },
-    {
-      title: "Budget Your Life",
-      description: "Android personal finance management app with intelligent location-based features and MVVM architecture",
-      details: [
-        "Built an Android app to manage personal finances, leveraging MVVM architecture to ensure separation of concerns and decouple business logic and UI, while using Repository pattern and Factories to interact with databases for expense tracking.",
-        "Implemented intuitive graphs, GPS location records, and smart reminders for automatic billing prompts at frequent locations, as well as regular expenses settings for recurring expenses.",
-        "Achieved 95% code coverage through comprehensive JUnit testing and CI/CD with GitHub Actions."
-      ],
-      technologies: ["Java", "Android Studio", "Firebase", "Material Design", "JUnit", "Github Actions", "MVVM"],
-      duration: "May 2025 – Aug 2025",
-      githubUrl: `https://github.com/brijesh-giri-neu/budget-manager`,
-      type: "Mobile App",
-      icon: <Zap className="h-5 w-5 text-green-500" />
-    }
-  ];
+  const projects = PROJECTS;
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -84,7 +37,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className={`hover-elevate transition-all duration-300 ${
+              className={`hover-elevate transition-all duration-300 h-full flex flex-col ${
                 project.featured ? 'ring-2 ring-primary/20 bg-primary/5' : ''
               }`}
               data-testid={`card-project-${index}`}
@@ -126,17 +79,17 @@ export default function Projects() {
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 flex-1 flex flex-col">
                 <ul className="space-y-2">
                   {project.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex text-sm text-muted-foreground">
                       <span className="text-primary mr-3 mt-1">•</span>
-                      <span className="leading-relaxed">{detail}</span>
+                      <span className="leading-relaxed text-justify">{detail}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="space-y-4">
+                <div className="flex-1 flex flex-col justify-between">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <Badge 
@@ -150,11 +103,12 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <div className="flex gap-3 pt-2">
+                  <div className="flex gap-3 pt-4 mt-4">
                     {project.githubUrl && (
                       <Button
                         variant="outline"
                         size="sm"
+                        className="flex-1"
                         onClick={() => window.open(project.githubUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-github-${index}`}
                       >
@@ -170,6 +124,7 @@ export default function Projects() {
                       <Button
                         variant="outline"
                         size="sm"
+                        className="flex-1"
                         onClick={() => window.open(project.projectUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-project-${index}`}
                       >
@@ -187,6 +142,7 @@ export default function Projects() {
                       <Button
                         variant="outline"
                         size="sm"
+                        className="flex-1"
                         onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-live-${index}`}
                       >

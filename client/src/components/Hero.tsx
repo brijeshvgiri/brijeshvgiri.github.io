@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, MessageCircle } from "lucide-react";
 import TypewriterText from "@/components/TypewriterText";
-import { HERO_CONTENT, PERSONAL_INFO, ASSETS } from "@/config/portfolio";
+import { HERO_CONTENT, PERSONAL_INFO, ASSETS, ICON_CONFIG } from "@/config/portfolio";
 import { FaChrome } from "react-icons/fa";
 
 export default function Hero() {
@@ -42,11 +42,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              MS Computer Science graduate from Northeastern University with 4.0 GPA, specializing in distributed systems 
-              and microservices architecture. Currently contributing to <span className="text-primary font-semibold dark:text-blue-400">Google's Chrome team</span> through 
-              Google Summer of Code 2025, with 3+ years of experience building scalable, cloud-native applications and 
-              high-performance backend systems.
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl text-justify">
+              {HERO_CONTENT.description}
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -68,14 +65,14 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="flex gap-4">
+            <div className={`flex gap-4 ${ICON_CONFIG.hero.spacing}`}>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => window.open(PERSONAL_INFO.linkedin, '_blank', 'noopener,noreferrer')}
                 data-testid="button-linkedin"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className={ICON_CONFIG.hero.size} />
               </Button>
               <Button
                 variant="ghost"
@@ -83,7 +80,7 @@ export default function Hero() {
                 onClick={() => window.open(PERSONAL_INFO.github, '_blank', 'noopener,noreferrer')}
                 data-testid="button-github"
               >
-                <Github className="h-5 w-5" />
+                <Github className={ICON_CONFIG.hero.size} />
               </Button>
               <Button
                 variant="ghost"
@@ -91,7 +88,7 @@ export default function Hero() {
                 onClick={() => window.open(PERSONAL_INFO.gerrit, '_blank', 'noopener,noreferrer')}
                 data-testid="button-chromium"
               >
-                <FaChrome className="h-5 w-5" />
+                <FaChrome className={ICON_CONFIG.hero.size} />
               </Button>
               <Button
                 variant="ghost"
@@ -99,7 +96,7 @@ export default function Hero() {
                 onClick={() => window.open(`mailto:${PERSONAL_INFO.email}`)}
                 data-testid="button-email"
               >
-                <Mail className="h-5 w-5" />
+                <Mail className={ICON_CONFIG.hero.size} />
               </Button>
             </div>
           </div>
