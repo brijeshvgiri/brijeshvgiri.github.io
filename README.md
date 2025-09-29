@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a personal portfolio website for Brijesh Veer Bahadur Giri, a Software Engineer and MS Computer Science graduate from Northeastern University. The application showcases professional experience, education, skills, and projects through a modern, responsive web interface. Built as a full-stack application with React frontend and Express backend, it features a clean, professional design inspired by modern developer portfolio sites like Linear and Notion.
+This is a personal portfolio website for Brijesh Veer Bahadur Giri. The application showcases professional experience, education, skills, and projects through a modern, responsive web interface. The app is a frontend-only React site built with Vite and Tailwind CSS.
 
 ## User Preferences
 
@@ -14,22 +14,10 @@ Preferred communication style: Simple, everyday language.
 - **Framework**: React 18 with TypeScript for type safety and modern development
 - **Styling**: Tailwind CSS with custom design system featuring light/dark mode support
 - **Component Library**: Radix UI primitives with shadcn/ui components for consistent, accessible UI elements
-- **State Management**: React Query (@tanstack/react-query) for server state and data fetching
 - **Routing**: Wouter for lightweight client-side routing
 - **Build Tool**: Vite for fast development and optimized production builds
 
-### Backend Architecture
-- **Runtime**: Node.js with Express framework
-- **Language**: TypeScript for full-stack type safety
-- **API Design**: RESTful API structure with `/api` prefix routing
-- **Development**: Hot module replacement and error overlays via Vite integration
-- **Storage Interface**: Abstracted storage layer with in-memory implementation (MemStorage)
-
-### Database Layer
-- **ORM**: Drizzle ORM for type-safe database operations
-- **Database**: PostgreSQL configured via Neon serverless
-- **Schema Management**: Centralized schema definitions in shared directory
-- **Migrations**: Drizzle Kit for database schema migrations
+This project does not include a backend or database.
 
 ### Design System
 - **Typography**: Inter (primary) and JetBrains Mono (code) from Google Fonts
@@ -70,7 +58,57 @@ Preferred communication style: Simple, everyday language.
 - **Date Handling**: date-fns for date manipulation and formatting
 - **UI Enhancements**: Embla Carousel for interactive components
 
-### Cloud Integration
-- **Deployment**: Configured for Replit hosting environment
-- **Asset Management**: Attached assets directory for static resources
-- **Environment**: Development and production build configurations
+## Running Locally
+
+```bash
+# install deps
+npm install
+
+# start dev server (light mode by default)
+npm run dev    # http://localhost:5001/
+
+# build production bundle
+npm run build  # outputs to dist/
+
+# preview the built site locally
+npm run preview  # http://localhost:4173/
+```
+
+## Deploying to GitHub Pages
+
+This repo uses the `gh-pages` workflow:
+
+- `main` branch: your source code
+- `gh-pages` branch: the built static site that GitHub Pages serves
+
+Current scripts in `package.json`:
+
+```json
+{
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  }
+}
+```
+
+Deploy with:
+
+```bash
+npm run deploy  # predeploy runs automatically, then dist/ is pushed to gh-pages
+```
+
+### GitHub Pages Settings
+
+- Repository: `brijeshvgiri/brijeshvgiri.github.io`
+- Pages → Source: "Deploy from a branch"
+- Branch: `gh-pages` (root)
+
+After deploying, your site is available at:
+
+- https://brijeshvgiri.github.io/
+
+## Notes
+
+- You don't need to push `main` to update the live site; `npm run deploy` pushes the built files directly to `gh-pages`.
+- If you see 404s after a rename, give Pages a few minutes to propagate and hard refresh the browser (Shift+Reload).
