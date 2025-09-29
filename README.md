@@ -4,6 +4,14 @@
 
 This is a personal portfolio website for Brijesh Veer Bahadur Giri. The application showcases professional experience, education, skills, and projects through a modern, responsive web interface. The app is a frontend-only React site built with Vite and Tailwind CSS.
 
+Software Engineer with 4+ years of experience building scalable, cloud-native applications and high-performance backend systems. Currently contributing to Google's Chrome team through Google Summer of Code 2025. I specialize in distributed systems, microservices architecture, enterprise-grade software solutions, and applied AI/LLM product development.
+
+### AI & LLM Focus
+- Shipping LLM-powered features end-to-end: prompt design, evaluation, safety, and observability
+- Retrieval-Augmented Generation (RAG), embeddings, and vector stores (e.g., pgvector)
+- Model integration and serving: OpenAI/Anthropic APIs, function calling, tool usage
+- Production concerns: latency budgets, cost controls, caching, and guardrails
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

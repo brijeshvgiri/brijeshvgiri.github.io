@@ -353,7 +353,7 @@ export const HERO_CONTENT = {
   description: React.createElement("span", null, 
     "Software Engineer with 4+ years of experience building scalable, cloud-native applications and high-performance backend systems. Currently contributing to ",
     React.createElement("span", { className: "text-primary font-semibold dark:text-blue-400" }, "Google's Chrome team"),
-    " through Google Summer of Code 2025. I specialize in distributed systems, microservices architecture, and enterprise-grade software solutions."
+    " through Google Summer of Code 2025. I specialize in distributed systems, microservices architecture, enterprise-grade software solutions, and applied AI/LLM systems (RAG, embeddings, vector search, prompt engineering)."
   ),
   typewriterSettings: {
     speed: 60,
