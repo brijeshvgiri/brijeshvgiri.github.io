@@ -20,12 +20,12 @@ export default function Hero() {
       <div className="container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:col-span-1">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground dark:text-foreground light:text-primary/80 leading-tight">
                 {HERO_CONTENT.greeting}
               </h1>
-              <h2 className="text-xl md:text-2xl text-muted-foreground font-medium h-8 md:h-10">
+              <h2 className="text-xl md:text-2xl text-muted-foreground font-medium min-h-[2.5rem] md:min-h-[2.75rem] flex items-center">
                 <TypewriterText 
                   texts={HERO_CONTENT.typewriterTexts}
                   speed={HERO_CONTENT.typewriterSettings.speed}
@@ -33,7 +33,7 @@ export default function Hero() {
                   delayBetween={HERO_CONTENT.typewriterSettings.delayBetween}
                 />
               </h2>
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-2 text-muted-foreground">
                 <span>{HERO_CONTENT.status.location}</span>
                 <span>•</span>
                 <span className="text-chart-2 font-medium dark:text-green-400">{HERO_CONTENT.status.availability}</span>
@@ -101,8 +101,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Profile Image */}
-          <div className="flex justify-center lg:justify-end">
+          {/* Profile Image - Hidden on mobile, visible on lg+ screens */}
+          <div className="hidden lg:flex justify-center lg:justify-end">
             <div className="relative group">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 transition-all duration-300 group-hover:border-primary/40 bg-gradient-to-br from-background/95 to-muted/80">
                 <img

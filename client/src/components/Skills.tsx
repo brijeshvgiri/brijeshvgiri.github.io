@@ -33,12 +33,12 @@ export default function Skills() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {category.skills.map((skill, skillIndex) => (
                     <Badge 
                       key={skillIndex}
                       variant="secondary"
-                      className="text-xs font-medium hover-elevate"
+                      className="text-xs font-medium hover-elevate px-2 py-1 break-words max-w-full"
                       data-testid={`badge-skill-${index}-${skillIndex}`}
                     >
                       {skill}

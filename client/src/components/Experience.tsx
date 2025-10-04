@@ -20,19 +20,19 @@ export default function Experience() {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 z-0"></div>
+          <div className="absolute left-8 sm:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 z-0"></div>
           
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, index) => (
               <div 
                 key={index} 
-                className="relative flex items-start gap-8"
+                className="relative flex items-start gap-4 sm:gap-8"
                 data-testid={`timeline-item-${index}`}
               >
                 {/* Timeline dot */}
                 <div className="relative z-20 flex-shrink-0 mt-6">
                   {/* Option 1a: Circular container with white background */}
-                  <div className="w-24 h-24 flex items-center justify-center bg-white rounded-full border-2 border-primary/10 shadow-sm overflow-hidden">
+                  <div className="w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center bg-white rounded-full border-2 border-primary/10 shadow-sm overflow-hidden">
                     {exp.icon}
                   </div>
                   
@@ -61,27 +61,27 @@ export default function Experience() {
                           <h3 className="text-xl font-semibold text-foreground mb-1">
                             {exp.role}
                           </h3>
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-3 min-w-0">
                             {exp.website ? (
                               <a
                                 href={exp.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-lg font-medium text-primary hover:text-primary/80 dark:hover:text-blue-300 hover:underline transition-colors duration-200 flex items-center gap-2"
+                                className="text-lg font-medium text-primary hover:text-primary/80 dark:hover:text-blue-300 hover:underline transition-colors duration-200 flex items-center gap-2 min-w-0"
                               >
-                                {exp.company}
-                                <ExternalLink className="h-4 w-4" />
+                                <span className="truncate">{exp.company}</span>
+                                <ExternalLink className="h-4 w-4 flex-shrink-0" />
                               </a>
                             ) : (
-                              <h4 className="text-lg font-medium text-primary">
+                              <h4 className="text-lg font-medium text-primary truncate">
                                 {exp.company}
                               </h4>
                             )}
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 lg:justify-end text-sm text-muted-foreground whitespace-nowrap">
-                          <CalendarDays className="h-4 w-4" />
-                          <span data-testid={`text-duration-${index}`}>{exp.duration}</span>
+                        <div className="flex items-center gap-2 lg:justify-end text-sm text-muted-foreground">
+                          <CalendarDays className="h-4 w-4 flex-shrink-0" />
+                          <span data-testid={`text-duration-${index}`} className="truncate">{exp.duration}</span>
                         </div>
                       </div>
                     </CardHeader>
@@ -96,12 +96,12 @@ export default function Experience() {
                         ))}
                       </ul>
 
-                      <div className="flex flex-wrap gap-2 pt-4">
+                      <div className="flex flex-wrap gap-1 sm:gap-2 pt-4">
                         {exp.skills.map((skill, skillIndex) => (
                           <Badge 
                             key={skillIndex} 
                             variant="secondary" 
-                            className="text-xs"
+                            className="text-xs px-2 py-1 break-words max-w-full"
                             data-testid={`badge-skill-${index}-${skillIndex}`}
                           >
                             {skill}

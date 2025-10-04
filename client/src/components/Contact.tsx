@@ -136,10 +136,10 @@ export default function Contact() {
                 Whether you're looking for a full-stack developer, need help with a specific project, 
                 or want to discuss potential collaborations, I'd love to hear from you.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button 
                   onClick={() => window.open(`mailto:${PERSONAL_INFO.email}?subject=Let's Connect`)}
-                  className="bg-primary hover:bg-primary/90"
+                  className="bg-primary hover:bg-primary/90 text-sm sm:text-base"
                   data-testid="button-primary-contact"
                 >
                   <Mail className="mr-2 h-4 w-4" />
@@ -148,6 +148,7 @@ export default function Contact() {
                 <Button 
                   variant="outline"
                   onClick={() => window.open(PERSONAL_INFO.linkedin, '_blank', 'noopener,noreferrer')}
+                  className="text-sm sm:text-base"
                   data-testid="button-linkedin-connect"
                 >
                   <Linkedin className="mr-2 h-4 w-4" />

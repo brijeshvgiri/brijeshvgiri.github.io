@@ -58,19 +58,20 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-center md:text-right">
-            <p className="text-muted-foreground text-sm flex items-center justify-center md:justify-end gap-1">
-              Made with <Heart className="h-4 w-4 text-red-500" fill="currentColor" /> 
-              © {currentYear} {PERSONAL_INFO.name}
+            <p className="text-muted-foreground text-sm flex items-center justify-center md:justify-end gap-1 flex-wrap">
+              <span>Made with</span>
+              <Heart className="h-4 w-4 text-red-500 flex-shrink-0" fill="currentColor" />
+              <span>© {currentYear} {PERSONAL_INFO.name}</span>
             </p>
           </div>
         </div>
 
         {/* Additional Info */}
         <div className="border-t border-card-border mt-8 pt-8 text-center">
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
             Currently seeking new opportunities in software engineering and full-stack development.
-            <br />
-            Open to remote work and relocation for the right opportunity.
+            <br className="hidden sm:block" />
+            <span className="block sm:inline">Open to remote work and relocation for the right opportunity.</span>
           </p>
         </div>
       </div>

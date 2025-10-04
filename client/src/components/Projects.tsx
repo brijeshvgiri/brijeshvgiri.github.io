@@ -90,12 +90,12 @@ export default function Projects() {
                 </ul>
 
                 <div className="flex-1 flex flex-col justify-between">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <Badge 
                         key={techIndex} 
                         variant="outline" 
-                        className="text-xs"
+                        className="text-xs px-2 py-1 break-words max-w-full"
                         data-testid={`badge-tech-${index}-${techIndex}`}
                       >
                         {tech}
@@ -103,55 +103,55 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <div className="flex gap-3 pt-4 mt-4">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4 mt-4">
                     {project.githubUrl && (
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1"
+                        className="flex-1 text-xs sm:text-sm"
                         onClick={() => window.open(project.githubUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-github-${index}`}
                       >
                         {project.type === "Open Source" ? (
-                          <Bug className="mr-2 h-4 w-4" />
+                          <Bug className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         ) : (
-                          <Github className="mr-2 h-4 w-4" />
+                          <Github className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         )}
-                        {project.type === "Open Source" ? "Issue" : "Code"}
+                        <span className="truncate">{project.type === "Open Source" ? "Issue" : "Code"}</span>
                       </Button>
                     )}
                     {project.projectUrl && (
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1"
+                        className="flex-1 text-xs sm:text-sm"
                         onClick={() => window.open(project.projectUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-project-${index}`}
                       >
                         {project.type === "Open Source" ? (
-                          <Star className="mr-2 h-4 w-4" />
+                          <Star className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         ) : project.type === "Mobile App" ? (
-                          <Smartphone className="mr-2 h-4 w-4" />
+                          <Smartphone className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         ) : (
-                          <Globe className="mr-2 h-4 w-4" />
+                          <Globe className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         )}
-                        {project.type === "Open Source" ? "Project" : "Live Demo"}
+                        <span className="truncate">{project.type === "Open Source" ? "Project" : "Live Demo"}</span>
                       </Button>
                     )}
                     {project.liveUrl && (
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1"
+                        className="flex-1 text-xs sm:text-sm"
                         onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
                         data-testid={`button-live-${index}`}
                       >
                         {project.type === "Mobile App" ? (
-                          <Smartphone className="mr-2 h-4 w-4" />
+                          <Smartphone className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         ) : (
-                          <Globe className="mr-2 h-4 w-4" />
+                          <Globe className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         )}
-                        Live Demo
+                        <span className="truncate">Live Demo</span>
                       </Button>
                     )}
                   </div>
