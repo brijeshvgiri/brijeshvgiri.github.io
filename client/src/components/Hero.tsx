@@ -55,14 +55,14 @@ export default function Hero() {
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Get In Touch
               </Button>
-              <Button 
+              {/* <Button 
                 variant="outline"
                 onClick={() => window.open(ASSETS.documents.resume, '_blank', 'noopener,noreferrer')}
                 data-testid="button-resume"
               >
                 <ExternalLink className="mr-2 h-4 w-4" />
                 View Resume
-              </Button>
+              </Button> */}
             </div>
 
             <div className={`flex gap-4 ${ICON_CONFIG.hero.spacing}`}>
