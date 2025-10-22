@@ -132,7 +132,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     company: "Bracebridge Capital",
-    role: "Software Engineer Intern",
+    role: "Software Engineer",
     duration: "May 2024 – Nov 2024",
     description: [
       "Built internal tools to streamline trading app distribution and optimize backend performance for financial operations.",
