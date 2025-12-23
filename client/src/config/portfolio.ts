@@ -101,12 +101,12 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     company: "Google Summer of Code",
     role: "Open Source Contributor — Google Chrome",
-    duration: "Apr 2025 – Present",
+    duration: "Apr 2025 – Nov 2025",
     description: [
       "Contributing to Chromium's TabStrip debugging infrastructure using C++ and TypeScript to visualize complex browser state management.",
     ],
     skills: ["C++", "TypeScript", "Mojo IPC", "Chromium", "Debugging", "WebUI"],
-    current: true,
+    current: false,
     icon: React.createElement("img", { 
       src: ASSETS.images.companies.google, 
       alt: "Google Chrome Logo", 
@@ -117,12 +117,12 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     company: "Northeastern University",
     role: "Teaching Assistant — Program Design",
-    duration: "July 2025 – Present",
+    duration: "July 2025 – Dec 2025",
     description: [
       "Mentoring 200+ students  in Java, MVC architecture, object oriented design, SOLID principles, design patterns, and JUnit testing.",
     ],
     skills: ["Java", "OOP", "Design Patterns", "JUnit", "Teaching", "MVC"],
-    current: true,
+    current: false,
     icon: React.createElement("img", { 
       src: ASSETS.images.companies.neu, 
       alt: "Northeastern University Logo", 
