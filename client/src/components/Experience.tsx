@@ -5,6 +5,7 @@ import { EXPERIENCES } from "@/config/portfolio";
 
 export default function Experience() {
   const experiences = EXPERIENCES;
+  const hasCurrentExperience = experiences.some(exp => exp.current);
 
   return (
     <section id="experience" className="py-20 bg-muted/20">
@@ -43,12 +44,22 @@ export default function Experience() {
                   
                   {/* Option 2: No container - uncomment below and comment above */}
                   {/* {exp.icon} */}
-                  {exp.current && (
-                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-chart-2 text-white text-xs px-2 py-1 shadow-lg">
-                        Current
-                      </Badge>
-                    </div>
+                  {hasCurrentExperience ? (
+                    exp.current && (
+                      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <Badge className="bg-chart-2 text-white text-xs px-2 py-1 shadow-lg">
+                          Current
+                        </Badge>
+                      </div>
+                    )
+                  ) : (
+                    index === 0 && (
+                      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <Badge className="bg-primary text-white text-xs px-2 py-1 shadow-lg">
+                          Timeline
+                        </Badge>
+                      </div>
+                    )
                   )}
                 </div>
 
