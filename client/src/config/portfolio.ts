@@ -66,6 +66,7 @@ export interface Project {
   githubUrl?: string;
   projectUrl?: string;
   liveUrl?: string;
+  apkUrl?: string;
   featured?: boolean;
   type?: string;
   icon?: React.ReactNode;
@@ -208,6 +209,7 @@ export const PROJECTS: Project[] = [
     technologies: ["JavaScript", "React", "Express", "Node.js", "MongoDB", "Cypress", "JWT", "MERN Stack"],
     duration: "Jan 2025 – Apr 2025",
     githubUrl: "https://github.com/brijesh-giri-neu/StackOverflow-Clone",
+    liveUrl: "https://qnaproject.bgiri.dev",
     featured: false,
     type: "Web Application",
     icon: React.createElement(Users, { className: "h-5 w-5 text-blue-500" })
@@ -223,6 +225,7 @@ export const PROJECTS: Project[] = [
     technologies: ["Java", "Android Studio", "Firebase", "Material Design", "JUnit", "Github Actions", "MVVM"],
     duration: "May 2025 – Aug 2025",
     githubUrl: "https://github.com/brijesh-giri-neu/budget-manager",
+    apkUrl: "https://github.com/brijesh-giri-neu/budget-manager/releases/tag/v1",
     type: "Mobile App",
     icon: React.createElement(Zap, { className: "h-5 w-5 text-green-500" })
   }
@@ -332,10 +335,10 @@ export const HEADER_CONFIG = {
   logo: "<BG/>",
   navigation: [
     { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
     { label: "Experience", id: "experience" },
     { label: "Education", id: "education" },
     { label: "Projects", id: "projects" },
+    { label: "Skills", id: "skills" },
     { label: "Contact", id: "contact" }
   ]
 };

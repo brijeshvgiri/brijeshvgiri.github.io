@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Calendar, Star, Users, Zap, Bug, Globe, Smartphone } from "lucide-react";
+import { Github, ExternalLink, Calendar, Star, Users, Zap, Bug, Globe, Smartphone, Download } from "lucide-react";
 import { PERSONAL_INFO, PROJECTS } from "@/config/portfolio";
 
 interface Project {
@@ -84,7 +84,7 @@ export default function Projects() {
                   {project.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex text-sm text-muted-foreground">
                       <span className="text-primary mr-3 mt-1">•</span>
-                      <span className="leading-relaxed text-justify">{detail}</span>
+                      <span className="leading-relaxed text-justify" style={{ textJustify: 'inter-word', wordSpacing: '0.05em' }}>{detail}</span>
                     </li>
                   ))}
                 </ul>
@@ -152,6 +152,18 @@ export default function Projects() {
                           <Globe className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                         )}
                         <span className="truncate">Live Demo</span>
+                      </Button>
+                    )}
+                    {project.apkUrl && project.type === "Mobile App" && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 text-xs sm:text-sm"
+                        onClick={() => window.open(project.apkUrl, '_blank', 'noopener,noreferrer')}
+                        data-testid={`button-apk-${index}`}
+                      >
+                        <Download className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                        <span className="truncate">Download APK</span>
                       </Button>
                     )}
                   </div>
