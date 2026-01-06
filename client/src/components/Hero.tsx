@@ -42,7 +42,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl text-justify">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl text-justify" style={{ textJustify: 'inter-word', wordSpacing: '0.05em' }}>
               {HERO_CONTENT.description}
             </p>
 
