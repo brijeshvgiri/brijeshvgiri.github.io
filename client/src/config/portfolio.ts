@@ -152,8 +152,8 @@ export const EXPERIENCES: ExperienceItem[] = [
     role: "Full Stack Developer",
     duration: "Feb 2022 – Jul 2023",
     description: [
-      "Engineered core features in a cloud-hosted ERP system for an emerging startup to automate asset tracking, supply chain management, e-invoicing, and tax compliance, streamlining operations for 20+ construction projects and helping secure $1.4 million in contracts.",
-      "Implemented structured logging across microservices, real-time features with GraphQL and WebSockets, plus secure authentication systems.",
+      "Engineered features in the cloud-hosted ERP system of an emerging startup to automate e-invoice processing using C#, .NET, and SQL database.",
+      "Implemented structured logging across microservices with distributed tracing as well as frontend for real-time dashboards with GraphQL and WebSockets.",
     ],
     skills: ["C#", ".NET", "React", "TypeScript", "GraphQL", "WebSockets", "OAuth 2.0", "JWT", "SQL"],
     icon: React.createElement("img", { 
@@ -169,7 +169,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     duration: "Jun 2019 – Nov 2021",
     description: [
       "Developed REST APIs and backend microservices for GEP-SMART, a multi-tiered cloud-native SaaS platform supporting global procurement workflows for Fortune 500 clients.",
-      "Optimized high-volume invoice processing (70K+ invoices) and built event-driven automation features."
+      "Optimized high-volume invoice processing (70K+ invoices) and built event-driven automation features for delegation, reassignment, and approval workflows."
 ],
     skills: ["C#", ".NET Core", "REST APIs", "Microservices", "Event-Driven Architecture", "SQL", "Azure", "Apache Kafka"],
     icon: React.createElement("img", { 
