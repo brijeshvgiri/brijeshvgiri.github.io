@@ -118,7 +118,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     company: "Northeastern University",
     role: "Teaching Assistant — Program Design",
-    duration: "July 2025 – Dec 2025",
+    duration: "Sep 2025 – Dec 2025",
     description: [
       "Mentoring 200+ students  in Java, MVC architecture, object oriented design, SOLID principles, design patterns, and JUnit testing.",
     ],
