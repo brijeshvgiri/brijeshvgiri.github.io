@@ -1,25 +1,45 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Calendar, Star, Users, Zap, Bug, Globe, Smartphone, Download } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Github, Calendar, Star, Bug, Globe, Smartphone, Download, Maximize2, Play } from "lucide-react";
 import { PERSONAL_INFO, PROJECTS } from "@/config/portfolio";
 
-interface Project {
-  title: string;
-  description: string;
-  details: string[];
-  technologies: string[];
-  duration: string;
-  githubUrl?: string;
-  liveUrl?: string;
-  projectUrl?: string;
-  featured?: boolean;
-  type?: string;
-  icon?: React.ReactNode;
+/** Accepts watch/share/embed URLs or a bare 11-character video id. */
+function getYoutubeVideoId(input: string): string | null {
+  const trimmed = input.trim();
+  if (/^[\w-]{11}$/.test(trimmed)) return trimmed;
+  try {
+    const u = new URL(trimmed);
+    if (u.hostname === "youtu.be") {
+      const id = u.pathname.replace(/^\//, "").split("/")[0];
+      return id || null;
+    }
+    if (u.hostname === "www.youtube.com" || u.hostname === "youtube.com" || u.hostname === "m.youtube.com") {
+      if (u.pathname.startsWith("/embed/")) {
+        return u.pathname.slice(7).split("/")[0] || null;
+      }
+      if (u.pathname.startsWith("/shorts/")) {
+        return u.pathname.slice(8).split("/")[0] || null;
+      }
+      const v = u.searchParams.get("v");
+      if (v) return v;
+    }
+  } catch {
+    return null;
+  }
+  return null;
 }
 
 export default function Projects() {
   const projects = PROJECTS;
+  const [selectedDemo, setSelectedDemo] = useState<{
+    url: string;
+    title: string;
+    type: "gif" | "youtube";
+  } | null>(null);
+  const [hoveredProjectIndex, setHoveredProjectIndex] = useState<number | null>(null);
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -33,15 +53,26 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {projects.map((project, index) => {
+            const youtubeDemoId = project.demoYoutubeUrl
+              ? getYoutubeVideoId(project.demoYoutubeUrl)
+              : null;
+            const hasDemo = Boolean(youtubeDemoId || project.demoGifUrl);
+            const isHovered = hoveredProjectIndex === index;
+            return (
             <Card 
               key={index} 
-              className={`hover-elevate transition-all duration-300 h-full flex flex-col ${
+              className={`hover-elevate transition-all duration-300 h-full flex flex-col overflow-hidden ${
                 project.featured ? 'ring-2 ring-primary/20 bg-primary/5' : ''
               }`}
               data-testid={`card-project-${index}`}
+              onMouseEnter={() => setHoveredProjectIndex(index)}
+              onMouseLeave={() =>
+                setHoveredProjectIndex((prev) => (prev === index ? null : prev))
+              }
             >
+              {/* Content Section - Header First */}
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
@@ -55,7 +86,7 @@ export default function Projects() {
                         {project.title}
                       </CardTitle>
                     </div>
-                    <div className="flex items-center gap-2 mb-3">
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
                       {project.featured && (
                         <Badge className="bg-primary text-primary-foreground">
                           Featured
@@ -67,7 +98,7 @@ export default function Projects() {
                         </Badge>
                       )}
                     </div>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-5 line-clamp-2 min-h-[2.5rem]">
                       {project.description}
                     </p>
                   </div>
@@ -78,6 +109,93 @@ export default function Projects() {
                   <span data-testid={`text-project-duration-${index}`}>{project.duration}</span>
                 </div>
               </CardHeader>
+
+              {/* Demo Section - After Header, Compact */}
+              {hasDemo && (
+                <div className="px-6 pb-4">
+                  <div 
+                    className="relative w-full h-[300px] rounded-lg bg-muted/20 cursor-pointer group transition-all duration-300 overflow-hidden border border-border/50"
+                    onClick={() => {
+                      if (youtubeDemoId) {
+                        setSelectedDemo({
+                          url: youtubeDemoId,
+                          title: project.title,
+                          type: "youtube",
+                        });
+                        return;
+                      }
+                      if (project.demoGifUrl) {
+                        setSelectedDemo({
+                          url: project.demoGifUrl,
+                          title: project.title,
+                          type: "gif",
+                        });
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    {youtubeDemoId ? (
+                      <>
+                        {isHovered ? (
+                          <iframe
+                            title={`${project.title} demo preview`}
+                            src={`https://www.youtube-nocookie.com/embed/${youtubeDemoId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&modestbranding=1&loop=1&playlist=${youtubeDemoId}`}
+                            className="absolute inset-0 h-full w-full"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            // Let the card click go through (open modal)
+                            style={{ pointerEvents: "none" }}
+                          />
+                        ) : (
+                          <>
+                            <img
+                              src={`https://i.ytimg.com/vi/${youtubeDemoId}/hqdefault.jpg`}
+                              alt=""
+                              className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-black/35 transition-opacity group-hover:bg-black/25" />
+                            <div className="relative flex h-full w-full flex-col items-center justify-center gap-2 px-4 text-center">
+                              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg ring-2 ring-white/30">
+                                <Play className="ml-0.5 h-5 w-5" fill="currentColor" aria-hidden />
+                              </div>
+                              <p className="text-xs font-medium text-white drop-shadow-sm">
+                                Click to expand
+                              </p>
+                            </div>
+                          </>
+                        )}
+                      </>
+                    ) : project.demoGifUrl ? (
+                      hoveredProjectIndex === index ? (
+                        <img 
+                          src={project.demoGifUrl} 
+                          alt={`${project.title} demo`}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-muted/40 px-4 text-center">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/80 shadow-sm ring-1 ring-border">
+                            <Play className="h-4 w-4 text-muted-foreground" aria-hidden />
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            Click here to view demo
+                          </p>
+                        </div>
+                      )
+                    ) : null}
+                    
+                    {/* Click to expand indicator */}
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-black/70 backdrop-blur-sm rounded-full p-1.5">
+                        <Maximize2 className="h-3.5 w-3.5 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <CardContent className="space-y-6 flex-1 flex flex-col">
                 <ul className="space-y-2">
@@ -166,11 +284,24 @@ export default function Projects() {
                         <span className="truncate">Download APK</span>
                       </Button>
                     )}
+                    {project.downloadUrl && project.type === "Desktop Application" && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 text-xs sm:text-sm"
+                        onClick={() => window.open(project.downloadUrl, '_blank', 'noopener,noreferrer')}
+                        data-testid={`button-download-${index}`}
+                      >
+                        <Download className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                        <span className="truncate">Download</span>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
@@ -184,6 +315,35 @@ export default function Projects() {
           </Button>
         </div>
       </div>
+
+      {/* Demo Modal */}
+      <Dialog open={!!selectedDemo} onOpenChange={(open) => !open && setSelectedDemo(null)}>
+        <DialogContent className="max-w-4xl w-full p-0">
+          <DialogHeader className="px-6 pt-6">
+            <DialogTitle>{selectedDemo?.title} - Demo</DialogTitle>
+          </DialogHeader>
+          <div className="p-6">
+            {selectedDemo?.type === "gif" ? (
+              <img 
+                src={selectedDemo.url} 
+                alt={`${selectedDemo.title} demo`}
+                className="w-full h-auto rounded-lg"
+              />
+            ) : selectedDemo?.type === "youtube" ? (
+              <div className="aspect-video w-full overflow-hidden rounded-lg bg-black">
+                <iframe
+                  title={`${selectedDemo.title} demo`}
+                  src={`https://www.youtube-nocookie.com/embed/${selectedDemo.url}?autoplay=1&rel=0`}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+            ) : null}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

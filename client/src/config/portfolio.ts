@@ -67,6 +67,11 @@ export interface Project {
   projectUrl?: string;
   liveUrl?: string;
   apkUrl?: string;
+  downloadUrl?: string;
+  /** Demo GIF fallback: put the file in `client/public/demos/` and use `/demos/<filename>.gif`. Remote `https://` URLs also work. Used when `demoYoutubeUrl` is not set. */
+  demoGifUrl?: string;
+  /** YouTube watch or share URL. Shown when valid; otherwise `demoGifUrl` is used. */
+  demoYoutubeUrl?: string;
   featured?: boolean;
   type?: string;
   icon?: React.ReactNode;
@@ -196,6 +201,8 @@ export const PROJECTS: Project[] = [
     type: "Open Source",
     projectUrl: "https://summerofcode.withgoogle.com/programs/2025/projects/uxcDW4j2",
     githubUrl: "https://issues.chromium.org/issues/427204855",
+    demoGifUrl: "/demos/chromium-demo.gif",
+    demoYoutubeUrl: "https://youtu.be/i-5m-s1DAA8",
     icon: React.createElement(Star, { className: "h-5 w-5 text-yellow-500" })
   },
   {
@@ -210,6 +217,7 @@ export const PROJECTS: Project[] = [
     duration: "Jan 2025 – Apr 2025",
     githubUrl: "https://github.com/brijesh-giri-neu/StackOverflow-Clone",
     liveUrl: "https://qnaproject.bgiri.dev",
+    demoYoutubeUrl: "https://youtu.be/GeK9exOLLxk",
     featured: false,
     type: "Web Application",
     icon: React.createElement(Users, { className: "h-5 w-5 text-blue-500" })
@@ -220,14 +228,32 @@ export const PROJECTS: Project[] = [
     details: [
       "Built an Android app to manage personal finances, leveraging MVVM architecture to ensure separation of concerns and decouple business logic and UI, while using Repository pattern and Factories to interact with databases for expense tracking.",
       "Implemented intuitive graphs, GPS location records, and smart reminders for automatic billing prompts at frequent locations, as well as regular expenses settings for recurring expenses.",
-      "Achieved 95% code coverage through comprehensive JUnit testing and CI/CD with GitHub Actions."
+      "Achieved 95% code coverage through comprehensive JUnit testing."
     ],
     technologies: ["Java", "Android Studio", "Firebase", "Material Design", "JUnit", "Github Actions", "MVVM"],
     duration: "May 2025 – Aug 2025",
     githubUrl: "https://github.com/brijesh-giri-neu/budget-manager",
     apkUrl: "https://github.com/brijesh-giri-neu/budget-manager/releases/tag/v1",
+    demoYoutubeUrl: "https://youtu.be/SiSN2Eoyv6U",
     type: "Mobile App",
     icon: React.createElement(Zap, { className: "h-5 w-5 text-green-500" })
+  },
+  {
+    title: "IME - Image Manipulation and Enhancement",
+    description: "Image processing application in Java with MVC architecture for manipulating 24-bit RGB images",
+    details: [
+      "Architected an Image processing application in Java, adhering to MVC architecture, to manipulate 24-bit RGB images.",
+      "Achieved an 'A' grade for code quality, adherence to SOLID principles, and thoroughness of JUnit testing.",
+      "Implemented various image enhancements including Quadratic levels adjustment, Color correction, Gaussian blur, Sepia, Dithering, and more."
+    ],
+    technologies: ["Java", "MVC Architecture", "SOLID Principles", "JUnit", "Image Processing", "OOP"],
+    duration: "Sep 2024 – Dec 2024",
+    githubUrl: "https://github.com/brijesh-giri-neu/IME-Image-Enhancement",
+    downloadUrl: "https://github.com/brijesh-giri-neu/IME-Image-Enhancement/releases/latest",
+    demoYoutubeUrl: "https://youtu.be/HHDAiuleluc",
+    featured: false,
+    type: "Desktop Application",
+    icon: React.createElement(Monitor, { className: "h-5 w-5 text-purple-500" })
   }
 ];
 
@@ -335,9 +361,9 @@ export const HEADER_CONFIG = {
   logo: "<BG/>",
   navigation: [
     { label: "About", id: "about" },
+    { label: "Projects", id: "projects" },
     { label: "Experience", id: "experience" },
     { label: "Education", id: "education" },
-    { label: "Projects", id: "projects" },
     { label: "Skills", id: "skills" },
     { label: "Contact", id: "contact" }
   ]
