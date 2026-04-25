@@ -196,7 +196,7 @@ export const PROJECTS: Project[] = [
       "Fixed a bug in Chrome's WebUI TabStrip that prevented thumbnails from updating on theme changes, by extending C++ backend observers to trigger refresh logic in the ViewModel."
     ],
     technologies: ["C++", "TypeScript", "Mojo IPC", "Chromium", "Debugging", "WebUI"],
-    duration: "Apr 2025 - Present",
+    duration: "Apr 2025 - Nov 2025",
     featured: true,
     type: "Open Source",
     projectUrl: "https://summerofcode.withgoogle.com/programs/2025/projects/uxcDW4j2",

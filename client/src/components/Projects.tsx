@@ -53,13 +53,13 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
           {projects.map((project, index) => {
             const youtubeDemoId = project.demoYoutubeUrl
               ? getYoutubeVideoId(project.demoYoutubeUrl)
               : null;
             const hasDemo = Boolean(youtubeDemoId || project.demoGifUrl);
-            const isHovered = hoveredProjectIndex === index;
+            const isDemoHovered = hoveredProjectIndex === index;
             return (
             <Card 
               key={index} 
@@ -67,10 +67,6 @@ export default function Projects() {
                 project.featured ? 'ring-2 ring-primary/20 bg-primary/5' : ''
               }`}
               data-testid={`card-project-${index}`}
-              onMouseEnter={() => setHoveredProjectIndex(index)}
-              onMouseLeave={() =>
-                setHoveredProjectIndex((prev) => (prev === index ? null : prev))
-              }
             >
               {/* Content Section - Header First */}
               <CardHeader className="pb-4">
@@ -115,6 +111,10 @@ export default function Projects() {
                 <div className="px-6 pb-4">
                   <div 
                     className="relative w-full h-[300px] rounded-lg bg-muted/20 cursor-pointer group transition-all duration-300 overflow-hidden border border-border/50"
+                    onMouseEnter={() => setHoveredProjectIndex(index)}
+                    onMouseLeave={() =>
+                      setHoveredProjectIndex((prev) => (prev === index ? null : prev))
+                    }
                     onClick={() => {
                       if (youtubeDemoId) {
                         setSelectedDemo({
@@ -137,7 +137,7 @@ export default function Projects() {
                   >
                     {youtubeDemoId ? (
                       <>
-                        {isHovered ? (
+                        {isDemoHovered ? (
                           <iframe
                             title={`${project.title} demo preview`}
                             src={`https://www.youtube-nocookie.com/embed/${youtubeDemoId}?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&modestbranding=1&loop=1&playlist=${youtubeDemoId}`}
@@ -160,9 +160,6 @@ export default function Projects() {
                               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg ring-2 ring-white/30">
                                 <Play className="ml-0.5 h-5 w-5" fill="currentColor" aria-hidden />
                               </div>
-                              <p className="text-xs font-medium text-white drop-shadow-sm">
-                                Click to expand
-                              </p>
                             </div>
                           </>
                         )}
